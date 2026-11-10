@@ -432,7 +432,7 @@ function homePage() {
       <p class="intro__edu">MPhil in Computer Science</p>
     </div>
     <div class="intro__text reveal">
-      <h2 id="intro-title">Where web development, <em>artificial intelligence</em> and search meet.</h2>
+      <h2 id="intro-title">Where web development, <em>artificial intelligence</em> and SEO meet.</h2>
       <p>Most businesses don't need three separate specialists for their website. They need one person who understands how it's built, where automation can save real time, and how people, and the systems they ask, will find it.</p>
       <p>That's the work I do. I build WordPress sites that are clean and easy to edit, connect AI only where it genuinely helps, and structure everything so it's clear to search engines and answer engines alike.</p>
       <a class="link-arrow" href="/about/"><span>More about me</span>${icon("arrow")}</a>
