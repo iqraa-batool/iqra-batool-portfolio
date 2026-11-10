@@ -40,12 +40,12 @@ const jobs = [
 
 for (const j of jobs) {
   const svg = fs.readFileSync(path.join(IMG, j.svg), "utf8");
-  const html = `<!doctype html><html><head><style>html,body{margin:0;width:${j.w / (j.scale || 1)}px;height:${j.h / (j.scale || 1)}px;overflow:hidden;background:${j.bg || "transparent"}}svg{display:block;width:${j.w / (j.scale || 1)}px;height:${j.h / (j.scale || 1)}px}</style></head><body>${svg}</body></html>`;
+  const html = `<!doctype html><html><head><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Inter:wght@400&display=block"><style>html,body{margin:0;width:${j.w / (j.scale || 1)}px;height:${j.h / (j.scale || 1)}px;overflow:hidden;background:${j.bg || "transparent"}}svg{display:block;width:${j.w / (j.scale || 1)}px;height:${j.h / (j.scale || 1)}px}</style></head><body>${svg}</body></html>`;
   const page = path.join(tmp, j.out + ".html");
   fs.writeFileSync(page, html);
   const out = path.join(IMG, j.out);
   execFileSync(browser, [
-    "--headless=new", "--disable-gpu", `--user-data-dir=${path.join(tmp, "profile")}`, "--no-first-run", "--no-default-browser-check", "--disable-extensions", "--hide-scrollbars", "--default-background-color=00000000",
+    "--headless=new", "--disable-gpu", `--user-data-dir=${path.join(tmp, "profile")}`, "--no-first-run", "--no-default-browser-check", "--disable-extensions", "--hide-scrollbars", "--virtual-time-budget=8000", "--default-background-color=00000000",
     // Very small windows hang some headless builds, so tiny icons render at a
     // larger window size with a fractional device scale factor.
     `--window-size=${j.w / (j.scale || 1)},${j.h / (j.scale || 1)}`, `--force-device-scale-factor=${j.scale || 1}`, `--screenshot=${out}`, "file:///" + page.replace(/\\/g, "/"),

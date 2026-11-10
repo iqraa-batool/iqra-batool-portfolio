@@ -289,7 +289,7 @@ ${site.twitterHandle ? `<meta name="twitter:site" content="${esc(site.twitterHan
 <meta name="twitter:image" content="${ogImage}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="/assets/css/main.css">
 <link rel="alternate" type="application/rss+xml" title="${esc(site.name)} — Blog" href="/feed.xml">
 <script>document.documentElement.classList.add("js")</script>

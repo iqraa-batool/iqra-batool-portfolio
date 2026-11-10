@@ -4,7 +4,7 @@ How the site looks and why, plus the record of the Impeccable design review.
 
 ## Direction
 
-The site is dark first and reads like a magazine. Midnight Plum is the canvas. The headings use Cormorant Garamond, a high-contrast serif, set large with italic emphasis. Cream sections break up the long dark pages. Gold is rare on purpose: it appears only in the monogram's dot, small rules and a few labels. That keeps it feeling like an accent rather than decoration.
+The site is dark first and reads like a magazine. Midnight Plum is the canvas. The headings use Big Shoulders Display, a tall condensed face, set large and bold, with key words picked out in pink. Cream sections break up the long dark pages. Gold is rare on purpose: it appears only in the monogram's dot, small rules and a few labels. That keeps it feeling like an accent rather than decoration.
 
 What the design deliberately avoids:
 
@@ -34,7 +34,7 @@ Semantic tokens (`--bg`, `--ink`, `--ink-soft`, `--ink-mute`, `--line`, `--link`
 
 **Type**
 
-- Display: Cormorant Garamond.
+- Headings and display: Big Shoulders Display.
 - Interface (nav, buttons, labels): Poppins.
 - Body text: Inter.
 - Sizes are fluid `clamp()` steps, `--t-hero` through `--t-label`.
@@ -58,7 +58,7 @@ Semantic tokens (`--bg`, `--ink`, `--ink-soft`, `--ink-mute`, `--line`, `--link`
 | low-contrast | 113 | **Mostly false positives.** Almost all came from the `@media print` rule (black text on a white background), which the static analyser reads as normal page styles. Checked separately with a real in-browser audit (below). |
 | cramped-padding | 162 | **False positives.** These are hairline-divided lists (no padding by design) and `clamp()` padding that the analyser can't resolve. Checked visually at 375px and at desktop width. |
 | overused-font | 19 | **Kept.** The fonts were specified in the brief. |
-| italic-serif-display | 12 | **Kept.** Italic emphasis in headings is the editorial signature. |
+| italic-serif-display | 12 | **Resolved.** The headings now use Big Shoulders Display, and heading emphasis is shown with colour instead of italics. |
 | tight-leading | 4 | **Kept.** These are large display headings, where tight leading reads better. Body text uses 1.65. |
 | em-dash-overuse | 6 | **Fixed.** Prose was rewritten with commas, colons, full stops and parentheses. Dashes remain in three places: the brief's verbatim hero line, the `<title>` separators, and the "**Term** — definition" glossary lists in the articles. |
 
