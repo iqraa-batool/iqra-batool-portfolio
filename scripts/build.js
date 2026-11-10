@@ -142,8 +142,8 @@ function personSchema() {
     description: site.description,
     image: abs("/assets/img/og-image.png"),
     knowsAbout: [
-      "WordPress", "HTML", "CSS", "JavaScript", "WordPress theme development", "WordPress plugin development", "Bricks Builder",
-      "AI integration", "Workflow automation", "Search engine optimization", "Technical SEO",
+      "WordPress", "WordPress web development", "Custom WordPress development", "HTML", "CSS", "JavaScript", "WordPress theme development", "WordPress plugin development", "Bricks Builder",
+      "Website development with AI", "AI-powered web development", "AI chatbots", "AI integration", "Workflow automation", "Figma to WordPress", "Website speed optimization", "Search engine optimization", "Technical SEO",
       "Answer Engine Optimization", "Generative Engine Optimization", "Structured data",
     ],
     hasCredential: about.education.map((e) => ({
@@ -388,9 +388,10 @@ function homePage() {
   <div class="container hero__inner">
     ${site.availability ? `<p class="hero__availability hero__fade">${esc(site.availability)}</p>` : ""}
     <div class="hero__stack">
+    <p class="hero__eyebrow hero__fade">WordPress Web Developer · Bricks Builder · Website Development with AI</p>
     <h1 id="hero-title"><span class="line"><span>Websites that work.</span></span> <span class="line"><span><em>And get you found.</em></span></span></h1>
     <div class="hero__foot hero__fade">
-      <p class="lede">Hi, I'm ${esc(site.name)}. I build WordPress websites, set up AI tools and automations, and handle SEO so the right people can find you.</p>
+      <p class="lede">Hi, I'm ${esc(site.name)}, a WordPress web developer and Bricks Builder specialist. I build fast WordPress websites with AI, set up automations, and handle SEO so the right people can find you.</p>
       <div class="hero__actions">
         <a class="btn" href="/projects/"><span>See my work</span>${icon("arrow")}</a>
         <a class="link-arrow" href="/contact/"><span>Let's work together</span>${icon("arrow")}</a>
@@ -409,9 +410,9 @@ function homePage() {
       <p class="intro__edu">MPhil in Computer Science</p>
     </div>
     <div class="intro__text reveal">
-      <h2 id="intro-title">Where web development, <em>artificial intelligence</em> and SEO meet.</h2>
+      <h2 id="intro-title">WordPress web development, <em>powered by AI</em> and built for SEO.</h2>
       <p>Most businesses don't want to hire three different people for one website. They want someone who knows how it's built, where automation can save time, and how customers will find it on Google or through AI tools.</p>
-      <p>That's what I do. I build clean WordPress sites that are easy to edit, add AI only where it's useful, and set everything up so Google and AI tools understand it.</p>
+      <p>That's what I do. I build clean WordPress and Bricks Builder sites that are easy to edit, use AI in website development only where it's useful, and set everything up so Google and AI tools understand it.</p>
       <a class="link-arrow" href="/about/"><span>More about me</span>${icon("arrow")}</a>
     </div>
   </div>
@@ -421,7 +422,7 @@ function homePage() {
   <div class="container">
     <div class="section-head section-head--split reveal">
       <h2 id="services-title">Three services, <em>one person.</em></h2>
-      <p>Use one on its own, or combine them for a website that's well built, smart and easy to find.</p>
+      <p>WordPress and Bricks Builder development, AI solutions and SEO services. Use one on its own, or combine them for a website that's well built, smart and easy to find.</p>
     </div>
     <ul class="service-index">
       ${services
@@ -464,8 +465,8 @@ function homePage() {
 ${cta()}`;
 
   return layout({
-    title: `${site.name} — WordPress Developer, AI Solutions Builder & SEO Specialist`,
-    description: `${site.name} — WordPress Developer, AI Solutions Builder and SEO Specialist. WordPress websites, AI automation and SEO for small businesses.`,
+    title: `WordPress Web Developer & AI Website Development | ${site.name}`,
+    description: `${site.name} is a WordPress web developer and Bricks Builder developer. Custom WordPress websites, website development with AI, automation and SEO services.`,
     path: "/",
     body,
     schema: [
@@ -567,8 +568,8 @@ ${certs}
 ${cta({ title: "Let's build <em>something useful.</em>", text: "Planning a website, an automation or an SEO project? I'd love to hear about it." })}`;
 
   return layout({
-    title: `About — ${site.name}, WordPress Developer & SEO Specialist`,
-    description: `About ${site.name}: Computer Science graduate with a completed MPhil, 1.5+ years of experience and 20+ projects in WordPress development, AI solutions and SEO.`,
+    title: `About ${site.name} — WordPress & Bricks Builder Developer`,
+    description: `About ${site.name}: WordPress web developer, MPhil in Computer Science, 20+ projects in WordPress, Bricks Builder, AI website development and SEO.`,
     path: "/about/",
     body,
     schema: [
@@ -645,8 +646,8 @@ ${cta({ title: "Not sure what <em>you need?</em>", text: "Just tell me what the 
   });
 
   return layout({
-    title: `Services — WordPress, AI Solutions, SEO, AEO & GEO | ${site.name}`,
-    description: "WordPress, theme and plugin development; AI integrations and automation; SEO, AEO and GEO services, explained clearly and without ranking guarantees.",
+    title: `WordPress, Bricks Builder, AI & SEO Services | ${site.name}`,
+    description: "Custom WordPress development, Bricks Builder websites, themes and plugins; website development with AI, chatbots and automation; SEO, AEO and GEO services.",
     path: "/services/",
     body,
     schema: [
@@ -704,8 +705,8 @@ ${pageHero({
 ${cta({ title: "Have a project <em>in mind?</em>", text: "A new WordPress site, an automation or an SEO audit? Tell me what you're trying to do." })}`;
 
   return layout({
-    title: `Projects — WordPress, AI & SEO Work | ${site.name}`,
-    description: `Selected projects by ${site.name} across WordPress development, website design, AI solutions, automation and SEO, each clearly labelled by project type.`,
+    title: `WordPress & Bricks Builder Projects | ${site.name}`,
+    description: `Selected projects by WordPress web developer ${site.name}: custom WordPress and Bricks Builder websites, AI solutions, automation and SEO.`,
     path: "/projects/",
     body,
     schema: [
@@ -1018,8 +1019,8 @@ ${pageHero({
 </section>`;
 
   return layout({
-    title: `Contact — Start a Project with ${site.name}`,
-    description: `Contact ${site.name} about WordPress development, website redesign, plugin development, AI solutions, automation, SEO, AEO or GEO.`,
+    title: `Hire a WordPress Web Developer — Contact ${site.name}`,
+    description: `Hire ${site.name} for WordPress web development, Bricks Builder websites, website redesign, plugin development, website development with AI, automation or SEO.`,
     path: "/contact/",
     body,
     schema: [

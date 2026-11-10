@@ -396,6 +396,7 @@ html { scrollbar-color: var(--plum-raised) var(--plum-deep); }
 .hero__foot .lede { max-width: 32rem; margin: 0; }
 .hero__actions { flex-shrink: 0; }
 .hero__actions { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 1.25rem 2rem; align-items: center; }
+.hero__eyebrow { font-family: var(--f-ui); font-size: var(--t-small); letter-spacing: 0.08em; text-transform: uppercase; color: var(--pink); margin: 0; }
 .hero__availability {
   justify-self: start; font-family: var(--f-ui); font-size: var(--t-small); color: var(--cream);
   display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.4rem 0.9rem; border: 1px solid var(--line-strong); border-radius: 999px;

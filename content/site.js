@@ -13,11 +13,11 @@ module.exports = {
   siteUrl: "https://iqrabatool.vercel.app",
 
   locale: "en",
-  roles: ["WordPress Developer", "AI Solutions Builder", "SEO Specialist"],
+  roles: ["WordPress Web Developer", "Bricks Builder Developer", "AI Website Developer", "SEO Specialist"],
 
   // Default meta description (pages override it).
   description:
-    "Iqra Batool builds WordPress websites, sets up AI tools and automations, and does SEO so businesses get found on Google and in AI answers.",
+    "Iqra Batool is a WordPress web developer and Bricks Builder developer offering website development with AI, AI automation and SEO, so businesses get found on Google and in AI answers.",
 
   // The two headline statistics. Keep these consistent everywhere.
   stats: [

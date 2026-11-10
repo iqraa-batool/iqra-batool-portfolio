@@ -4,7 +4,7 @@
  */
 module.exports = {
   intro:
-    "I have an MPhil in Computer Science. I build WordPress websites, use AI to save businesses time, and do SEO so people can find them on Google and in AI tools like ChatGPT.",
+    "I'm a WordPress web developer with an MPhil in Computer Science. I build custom WordPress and Bricks Builder websites, use AI in website development to save businesses time, and do SEO so people can find them on Google and in AI tools like ChatGPT.",
 
   story: [
     "Studying computer science taught me a habit I still use every day: understand the problem first, test instead of guessing, and explain things in plain words.",

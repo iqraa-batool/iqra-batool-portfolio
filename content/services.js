@@ -10,7 +10,7 @@ module.exports = [
     title: "WordPress & Web Development",
     homeTitle: "WordPress development",
     summary:
-      "WordPress and Bricks Builder websites that look good on every screen, load fast and are easy for you to update yourself.",
+      "Custom WordPress development and Bricks Builder websites that look good on every screen, load fast and are easy for you to update yourself.",
     services: [
       {
         name: "WordPress Websites",
