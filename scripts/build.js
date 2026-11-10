@@ -252,6 +252,9 @@ function footer() {
 
 function layout({ title, description, path: pagePath, body, schema = [], ogType = "website", noindex = false, article = null }) {
   const canonical = abs(pagePath);
+  // Every inner-page hero gets the same gradient and blurred glow as the home hero.
+  const glow = `<div class="hero__glow" aria-hidden="true"><span></span><span></span><span></span></div>`;
+  body = body.replace(/<section class="page-hero section surface-dark">/g, (m) => m + glow).replace(/<section class="nf surface-dark">/g, (m) => m + glow);
   const ogImage = abs("/assets/img/og-image.png");
   const graph = schema.length ? `<script type="application/ld+json">${json({ "@context": "https://schema.org", "@graph": schema })}</script>` : "";
   const articleMeta = article
@@ -306,6 +309,8 @@ ${header(pagePath)}
 ${body}
 </main>
 ${footer()}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
 <script src="/assets/js/main.js?v=${JS_V}" defer></script>
 </body>
@@ -383,7 +388,7 @@ function homePage() {
   <div class="container hero__inner">
     ${site.availability ? `<p class="hero__availability hero__fade">${esc(site.availability)}</p>` : ""}
     <div class="hero__stack">
-    <h1 id="hero-title"><span class="line"><span>Websites that work. And</span></span> <span class="line"><span><em>get you found.</em></span></span></h1>
+    <h1 id="hero-title"><span class="line"><span>Websites that work.</span></span> <span class="line"><span><em>And get you found.</em></span></span></h1>
     <div class="hero__foot hero__fade">
       <p class="lede">Hi, I'm ${esc(site.name)}. I build WordPress websites, set up AI tools and automations, and handle SEO so the right people can find you.</p>
       <div class="hero__actions">
