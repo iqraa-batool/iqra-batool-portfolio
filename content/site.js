@@ -17,7 +17,7 @@ module.exports = {
 
   // Default meta description (pages override it).
   description:
-    "Iqra Batool is a WordPress developer, AI solutions builder and SEO specialist helping businesses build better websites, smarter workflows and stronger digital visibility.",
+    "Iqra Batool builds WordPress websites, sets up AI tools and automations, and does SEO so businesses get found on Google and in AI answers.",
 
   // The two headline statistics. Keep these consistent everywhere.
   stats: [

@@ -4,13 +4,13 @@
  */
 module.exports = {
   intro:
-    "I'm a Computer Science graduate with a completed MPhil in Computer Science. I build WordPress websites, connect AI to the places where it saves people real time, and make sure the result can be found by search engines and by the answer engines people now ask first.",
+    "I have an MPhil in Computer Science. I build WordPress websites, use AI to save businesses time, and do SEO so people can find them on Google and in AI tools like ChatGPT.",
 
   story: [
-    "Studying computer science through to MPhil level gave me a way of working I still rely on every day: understand the problem before reaching for a tool, test assumptions instead of trusting them, and explain decisions in plain language.",
-    "WordPress is where I put that into practice. It runs a large share of the web, and it rewards people who understand it properly: clean themes instead of bloated ones, plugins that fit how a business actually works, and editing experiences that clients can use without calling a developer.",
-    "Over 1.5+ years and 20+ projects, my work has grown in two directions. The first is artificial intelligence: integrations and automations that remove repetitive steps from a business, built carefully and without pretending AI can do more than it can. The second is search: technical SEO, content structure and, increasingly, Answer Engine Optimization and Generative Engine Optimization, so a site is understandable to the systems that summarise the web.",
-    "I like projects where those three meet. A website that is well built, quietly intelligent and easy to find is worth more than the sum of its parts.",
+    "Studying computer science taught me a habit I still use every day: understand the problem first, test instead of guessing, and explain things in plain words.",
+    "WordPress is where I put that into practice. I like building it properly: clean themes, plugins that fit how a business works, and an editor clients can use without calling a developer.",
+    "In 1.5+ years and 20+ projects, my work has grown in two directions. One is AI: automations and integrations that cut out repetitive tasks, without overpromising what AI can do. The other is SEO: technical fixes, clear content and, more and more, AEO and GEO, so AI tools can understand and recommend a site.",
+    "My favourite projects use all three. A site that's well built, smart and easy to find does a lot more for a business.",
   ],
 
   // EDUCATION — add institution and year when you want them shown.
@@ -68,68 +68,45 @@ module.exports = {
     },
   ],
 
-  philosophy: [
-    {
-      title: "Useful first",
-      text: "A digital product earns its place by doing a job for someone. I start with what the site or tool needs to accomplish, then design toward it.",
-    },
-    {
-      title: "Real problems, not imagined ones",
-      text: "Before suggesting a plugin, an automation or an AI feature, I want to see the problem it solves. Sometimes the right answer is to remove something.",
-    },
-    {
-      title: "Built for the person using it",
-      text: "Readable text, obvious navigation, fast pages and forms that explain their errors. Usability is not a finishing touch; it is the work.",
-    },
-    {
-      title: "Creativity with discipline",
-      text: "Good design and good engineering are the same habit: making careful decisions and being able to explain each one.",
-    },
-    {
-      title: "Always learning",
-      text: "Search and AI are changing quickly. I keep learning, test new approaches on my own projects first, and adopt what proves itself.",
-    },
-  ],
-
   // Shown on the homepage under "Why work with me".
   strengths: [
     {
-      title: "Technical understanding",
-      text: "A computer science foundation means I understand what happens beneath the page builder, not only on top of it.",
+      title: "I know the tech",
+      text: "With a computer science background, I understand what's going on under the page builder, not just on top of it.",
     },
     {
-      title: "Creative problem-solving",
-      text: "When a theme or plugin can't do what you need, I look for the cleanest way to make it, not the quickest hack.",
+      title: "Clean fixes, not hacks",
+      text: "When a theme or plugin can't do what you need, I find the cleanest way to make it work.",
     },
     {
-      title: "Modern development practices",
-      text: "Semantic HTML, maintainable CSS, update-safe customisations and code other developers can read.",
+      title: "Code that lasts",
+      text: "Tidy HTML and CSS, changes that survive updates, and code another developer can pick up easily.",
     },
     {
-      title: "Focus on usability",
-      text: "Every layout is checked on real screen sizes, with a keyboard, and with the person who will edit it in mind.",
+      title: "Easy to use",
+      text: "I test every layout on real screens and keep the person editing the site in mind.",
     },
     {
-      title: "Performance-conscious",
-      text: "Images, scripts and plugins are chosen with page speed in mind from the start, not patched in at the end.",
+      title: "Fast by default",
+      text: "I think about page speed from day one, not as a fix at the end.",
     },
     {
-      title: "Continuous learning",
-      text: "I follow how search and AI are evolving and bring what's proven, not what's hyped, into client work.",
+      title: "Always learning",
+      text: "SEO and AI change fast. I keep up, test new ideas on my own projects, and only use what works.",
     },
     {
-      title: "Interest in intelligent solutions",
-      text: "I look for places where automation or AI can quietly remove work from your week.",
+      title: "Smarter workflows",
+      text: "I look for spots where automation or AI can take work off your plate.",
     },
   ],
 
   process: [
-    { title: "Discover", text: "We talk through goals, audience, constraints and what success looks like." },
-    { title: "Plan", text: "Site structure, content needs, technical approach and a realistic timeline." },
-    { title: "Design", text: "Layouts and visual direction, reviewed together before anything is built." },
-    { title: "Develop", text: "A clean, responsive build with an editing experience you can actually use." },
-    { title: "Test", text: "Devices, browsers, forms, speed, accessibility and search basics: checked, not assumed." },
-    { title: "Launch", text: "Go-live, redirects, search console setup and a handover so you're never stuck." },
+    { title: "Discover", text: "We talk about your goals, your audience and what a good result looks like." },
+    { title: "Plan", text: "We agree on the site structure, content, approach and a realistic timeline." },
+    { title: "Design", text: "I share layouts and the visual direction, and we review them together before I build." },
+    { title: "Develop", text: "I build a clean, responsive site with an editor you can actually use." },
+    { title: "Test", text: "I check devices, browsers, forms, speed, accessibility and SEO basics." },
+    { title: "Launch", text: "We go live, I set up redirects and Search Console, and I walk you through everything." },
   ],
 
   // Confirmed technologies. Add others to `additional` only once you use them in real work.

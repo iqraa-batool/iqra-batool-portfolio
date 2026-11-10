@@ -327,7 +327,7 @@ function pageHero({ crumbs, title, lede, extra = "" }) {
 </section>`;
 }
 
-function cta({ title = "Have an Idea? <em>Let's Build Something Meaningful.</em>", text = "Tell me about the website, workflow or search problem you're working on. I'll reply with honest thoughts on how I can help, or who could help better.", button = "Start a Conversation" } = {}) {
+function cta({ title = "Got an idea? <em>Let's build it.</em>", text = "Tell me about the website, workflow or SEO problem you're dealing with. I'll tell you honestly how I can help, or point you to someone who can.", button = "Start a Conversation" } = {}) {
   return `<section class="section cta surface-royal" aria-labelledby="cta-title">
   <div class="container cta__inner reveal">
     <h2 id="cta-title">${title}</h2>
@@ -371,7 +371,7 @@ function homePage() {
   const queries = [
     { text: "Who can build a fast WordPress site we can edit ourselves?", focus: "web" },
     { text: "Who can add AI to our workflow without the hype?", focus: "ai" },
-    { text: "Who can make our site easier for search and AI answers to understand?", focus: "search" },
+    { text: "Who can help us show up on Google and in AI answers?", focus: "search" },
   ];
   const codeSnippet = `{
   "@type": "Person",
@@ -388,11 +388,11 @@ function homePage() {
 <section class="hero section surface-dark" aria-labelledby="hero-title">
   <div class="container hero__grid">
     <div class="hero__text">
-      <h1 id="hero-title"><span class="line">Building Digital Experiences.</span> <span class="line"><em>Creating Intelligent Solutions.</em></span></h1>
-      <p class="lede hero__fade">I'm ${esc(site.name)} — a WordPress Developer, AI Solutions Builder, and SEO Specialist helping businesses build better websites, smarter workflows, and stronger digital visibility.</p>
+      <h1 id="hero-title"><span class="line">Websites that work.</span> <span class="line"><em>And get you found.</em></span></h1>
+      <p class="lede hero__fade">Hi, I'm ${esc(site.name)}. I build WordPress websites, set up AI tools and automations, and handle SEO so the right people can find you.</p>
       <div class="hero__actions hero__fade">
-        <a class="btn" href="/projects/"><span>Explore My Work</span>${icon("arrow")}</a>
-        <a class="link-arrow" href="/contact/"><span>Let's Work Together</span>${icon("arrow")}</a>
+        <a class="btn" href="/projects/"><span>See my work</span>${icon("arrow")}</a>
+        <a class="link-arrow" href="/contact/"><span>Let's work together</span>${icon("arrow")}</a>
       </div>
       ${site.availability ? `<p class="hero__availability hero__fade">${esc(site.availability)}</p>` : ""}
     </div>
@@ -433,8 +433,8 @@ function homePage() {
     </div>
     <div class="intro__text reveal">
       <h2 id="intro-title">Where web development, <em>artificial intelligence</em> and SEO meet.</h2>
-      <p>Most businesses don't need three separate specialists for their website. They need one person who understands how it's built, where automation can save real time, and how people, and the systems they ask, will find it.</p>
-      <p>That's the work I do. I build WordPress sites that are clean and easy to edit, connect AI only where it genuinely helps, and structure everything so it's clear to search engines and answer engines alike.</p>
+      <p>Most businesses don't want to hire three different people for one website. They want someone who knows how it's built, where automation can save time, and how customers will find it on Google or through AI tools.</p>
+      <p>That's what I do. I build clean WordPress sites that are easy to edit, add AI only where it's useful, and set everything up so Google and AI tools understand it.</p>
       <a class="link-arrow" href="/about/"><span>More about me</span>${icon("arrow")}</a>
     </div>
   </div>
@@ -443,13 +443,13 @@ function homePage() {
 <section class="section surface-dark" aria-labelledby="services-title">
   <div class="container">
     <div class="section-head section-head--split reveal">
-      <h2 id="services-title">Three disciplines, <em>one way of working.</em></h2>
-      <p>Each one stands on its own. Together they make a website that is well built, quietly intelligent and easy to find.</p>
+      <h2 id="services-title">Three services, <em>one person.</em></h2>
+      <p>Use one on its own, or combine them for a website that's well built, smart and easy to find.</p>
     </div>
     <ul class="service-index">
       ${services
         .map((c) => {
-          const count = c.services ? c.services.length : c.groups.reduce((n, g) => n + g.items.length, 0);
+          const count = c.services.length;
           return `<li class="service-index__item reveal"><a class="service-index__link" href="/services/#${c.id}">
         <span><span class="service-index__title">${esc(c.title)}</span><span class="service-index__count">${count} services</span></span>
         <span class="service-index__summary">${esc(c.summary)}</span>
@@ -465,7 +465,7 @@ function homePage() {
   <div class="container">
     <div class="section-head section-head--split reveal">
       <h2 id="work-title">Selected work</h2>
-      <p>A few projects that show how I approach a brief. Each one says plainly what kind of project it is.</p>
+      <p>A few projects that show how I work. Each one is labelled, so you know what kind of project it is.</p>
     </div>
     <div class="work-list">${featured.map((p) => workItem(p)).join("")}</div>
     <p style="margin-top:4rem"><a class="btn btn--ghost" href="/projects/"><span>View all projects</span>${icon("arrow")}</a></p>
@@ -476,7 +476,7 @@ function homePage() {
   <div class="container why__grid">
     <div class="why__head reveal">
       <h2 id="why-title">Why work <em>with me</em></h2>
-      <p class="lede">A computer science foundation, practical WordPress experience and a careful approach to AI and search.</p>
+      <p class="lede">A computer science background, hands-on WordPress experience and a sensible approach to AI and SEO.</p>
       <a class="link-arrow" href="/about/"><span>How I work</span>${icon("arrow")}</a>
     </div>
     <ul class="why__list">
@@ -489,7 +489,7 @@ function homePage() {
   <div class="container">
     <div class="section-head reveal">
       <h2 id="process-title">How a project runs</h2>
-      <p>Six steps, in this order, every time. You always know what's happening and what comes next.</p>
+      <p>The same six steps every time, so you always know what's happening and what comes next.</p>
     </div>
     <ol class="process reveal">
       ${about.process.map((s, i) => `<li><span class="process__n">${String(i + 1).padStart(2, "0")}</span><h3>${esc(s.title)}</h3><p>${esc(s.text)}</p></li>`).join("")}
@@ -512,8 +512,8 @@ function homePage() {
 <section class="section surface-cream" aria-labelledby="blog-title">
   <div class="container">
     <div class="section-head section-head--split reveal">
-      <h2 id="blog-title">Notes on the web, <em>AI and search</em></h2>
-      <p>Plain-language guides to the things I work on every day. <a href="/blog/">Read the blog</a>.</p>
+      <h2 id="blog-title">Notes on WordPress, <em>AI and SEO</em></h2>
+      <p>Simple guides to the things I work with every day. <a href="/blog/">Read the blog</a>.</p>
     </div>
     <ul class="posts reveal">${blogPreview.map((p) => `<li>${postItem(p)}</li>`).join("")}</ul>
   </div>
@@ -523,7 +523,7 @@ ${cta()}`;
 
   return layout({
     title: `${site.name} — WordPress Developer, AI Solutions Builder & SEO Specialist`,
-    description: `${site.name} — WordPress Developer, AI Solutions Builder and SEO Specialist. Better websites, smarter workflows and stronger digital visibility.`,
+    description: `${site.name} — WordPress Developer, AI Solutions Builder and SEO Specialist. WordPress websites, AI automation and SEO for small businesses.`,
     path: "/",
     body,
     schema: [
@@ -541,7 +541,7 @@ function aboutPage() {
     ["Experience", `${s[0].value.toFixed(s[0].decimals)}${s[0].suffix} years`],
     ["Projects", `${s[1].value.toFixed(s[1].decimals)}${s[1].suffix} completed`],
     ["Education", "MPhil, Computer Science"],
-    ["Focus", "WordPress, AI and search"],
+    ["Focus", "WordPress, AI and SEO"],
     location ? ["Based in", location] : null,
   ].filter(Boolean);
 
@@ -604,7 +604,7 @@ ${pageHero({
   <div class="container">
     <div class="section-head section-head--split reveal">
       <h2 id="exp-title">Experience</h2>
-      <p>Over ${esc(s[0].value.toFixed(s[0].decimals) + s[0].suffix)} years I've completed ${esc(s[1].value.toFixed(s[1].decimals) + s[1].suffix)} projects across WordPress development, AI solutions and search optimisation — from building and customising themes and plugins to setting up automations and improving how sites are found.</p>
+      <p>In ${esc(s[0].value.toFixed(s[0].decimals) + s[0].suffix)} years I've finished ${esc(s[1].value.toFixed(s[1].decimals) + s[1].suffix)} projects across WordPress, AI and SEO, from building themes and plugins to setting up automations and helping sites rank better.</p>
     </div>
     ${experienceList}
     <p><a class="link-arrow" href="/projects/"><span>See selected projects</span>${icon("arrow")}</a></p>
@@ -622,18 +622,7 @@ ${certs}
   </div>
 </section>
 
-<section class="section surface-cream" aria-labelledby="philosophy-title">
-  <div class="container">
-    <div class="section-head reveal">
-      <h2 id="philosophy-title">What I believe <em>about the work</em></h2>
-    </div>
-    <ul class="principles">
-      ${about.philosophy.map((p) => `<li class="reveal"><h3>${esc(p.title)}</h3><p>${esc(p.text)}</p></li>`).join("")}
-    </ul>
-  </div>
-</section>
-
-${cta({ title: "Let's build <em>something useful.</em>", text: "If you're planning a website, an automation or a search project, I'd be glad to hear about it." })}`;
+${cta({ title: "Let's build <em>something useful.</em>", text: "Planning a website, an automation or an SEO project? I'd love to hear about it." })}`;
 
   return layout({
     title: `About — ${site.name}, WordPress Developer & SEO Specialist`,
@@ -653,71 +642,31 @@ function servicesPage() {
   const crumbs = [{ name: "Home", path: "/" }, { name: "Services", path: "/services/" }];
   const surfaces = { wordpress: "surface-dark", ai: "surface-deep", seo: "surface-dark" };
 
-  const accordionItem = (svc, label) => `<details>
-  <summary><h3 class="accordion__name">${esc(svc.name)}</h3><span class="accordion__icon">${icon("plus")}</span></summary>
-  <div class="accordion__panel">
-    <p>${esc(svc.what)}</p>
-    <div class="svc-detail">
-      <div><h4>Who it's for</h4><p>${esc(svc.who)}</p></div>
-      <div><h4>${esc(label)}</h4><p>${esc(svc.solves)}</p></div>
-      <div><h4>Deliverables</h4><ul>${svc.deliverables.map((d) => `<li>${esc(d)}</li>`).join("")}</ul></div>
-    </div>
-    <ul class="tags" aria-label="Technologies">${svc.tech.map((t) => `<li class="tag">${esc(t)}</li>`).join("")}</ul>
+  const svcRow = (svc, i) => `<li class="svc-row reveal">
+  <span class="svc-row__n" aria-hidden="true">${String(i + 1).padStart(2, "0")}</span>
+  <div class="svc-row__body">
+    <h3>${esc(svc.name)}</h3>
+    <p>${esc(svc.desc)}</p>
+    <ul class="tags" aria-label="Includes">${svc.tags.map((t) => `<li class="tag">${esc(t)}</li>`).join("")}</ul>
   </div>
-</details>`;
+</li>`;
 
-  const listCategory = (c) => `<section id="${c.id}" class="section ${surfaces[c.id]}" aria-labelledby="${c.id}-title">
+  const category = (c) => `<section id="${c.id}" class="section ${surfaces[c.id]}" aria-labelledby="${c.id}-title">
   <div class="container">
     <div class="svc-category__head reveal">
       <h2 id="${c.id}-title">${esc(c.title)}</h2>
       <p>${esc(c.summary)}</p>
     </div>
     ${c.note ? `<div class="note">${icon("info")}<p>${esc(c.note)}</p></div>` : ""}
-    <div class="accordion">${c.services.map((s) => accordionItem(s, c.solvesLabel)).join("")}</div>
+    <ul class="svc-list">${c.services.map(svcRow).join("")}</ul>
+    ${c.disclaimer ? `<div class="disclaimer reveal">${icon("shield")}<p>${esc(c.disclaimer)}</p></div>` : ""}
   </div>
 </section>`;
 
   const seo = services.find((c) => c.id === "seo");
-  const xeoPanel = (abbr, block) => `<div class="xeo__panel">
-  <span class="xeo__abbr" aria-hidden="true">${abbr}</span>
-  <h3>${esc(block.title)} <span class="visually-hidden">(${abbr})</span></h3>
-  <p>${esc(block.intro)}</p>
-  <ul>${block.points.map((p) => `<li><strong>${esc(p.name)}</strong>${esc(p.desc)}</li>`).join("")}</ul>
-</div>`;
-
-  const seoSection = `<section id="seo" class="section ${surfaces.seo}" aria-labelledby="seo-title">
+  const faq = `<section class="section surface-cream" aria-labelledby="faq-title">
   <div class="container">
-    <div class="svc-category__head reveal">
-      <h2 id="seo-title">${esc(seo.title)}</h2>
-      <p>${esc(seo.summary)}</p>
-    </div>
-    <div class="seo-groups">
-      ${seo.groups
-        .map(
-          (g) => `<div class="reveal">
-        <div class="seo-group__head"><h3>${esc(g.title)}</h3><span>${g.items.length} services</span></div>
-        <dl class="term-list">${g.items.map((i) => `<div><dt>${esc(i.name)}</dt><dd>${esc(i.desc)}</dd></div>`).join("")}</dl>
-      </div>`
-        )
-        .join("")}
-      <div class="xeo reveal" id="aeo-geo">${xeoPanel("AEO", seo.aeo)}${xeoPanel("GEO", seo.geo)}</div>
-    </div>
-    <div class="disclaimer reveal">${icon("shield")}<p>${esc(seo.disclaimer)}</p></div>
-  </div>
-</section>`;
-
-  const deliverables = `<section class="section surface-cream" aria-labelledby="deliverables-title">
-  <div class="container">
-    <div class="section-head section-head--split reveal">
-      <h2 id="deliverables-title">What you receive</h2>
-      <p>Search work produces documents you can act on and changes you can verify, not vague promises.</p>
-    </div>
-    <ul class="deliverables reveal">${seo.deliverables.map((d) => `<li>${esc(d)}</li>`).join("")}</ul>
-  </div>
-</section>
-<section class="section surface-cream" aria-labelledby="faq-title" style="padding-top:0">
-  <div class="container">
-    <div class="section-head reveal"><h2 id="faq-title">Questions about search</h2></div>
+    <div class="section-head reveal"><h2 id="faq-title">Questions about SEO</h2></div>
     <div class="accordion faq">${seo.faqs
       .map((f) => `<details><summary><span>${esc(f.q)}</span><span class="accordion__icon">${icon("plus")}</span></summary><div class="accordion__panel"><p>${esc(f.a)}</p></div></details>`)
       .join("")}</div>
@@ -728,16 +677,15 @@ function servicesPage() {
 ${pageHero({
   crumbs,
   title: `Services for websites that <em>work harder.</em>`,
-  lede: "WordPress development, practical AI and search optimisation. Each is available on its own, and designed to work together.",
-  extra: `<nav class="svc-nav" aria-label="Service categories">${services.map((c) => `<a href="#${c.id}">${esc(c.title)}</a>`).join("")}<a href="#aeo-geo">AEO and GEO</a></nav>`,
+  lede: "Websites, AI and SEO. Pick one, or combine them. They work well together.",
+  extra: `<nav class="svc-nav" aria-label="Service categories">${services.map((c) => `<a href="#${c.id}">${esc(c.title)}</a>`).join("")}</nav>`,
 })}
-${services.filter((c) => c.services).map(listCategory).join("\n")}
-${seoSection}
-${deliverables}
-${cta({ title: "Not sure which service <em>you need?</em>", text: "Describe the problem instead. I'll suggest the simplest way to solve it.", button: "Start a Conversation" })}`;
+${services.map(category).join("\n")}
+${faq}
+${cta({ title: "Not sure what <em>you need?</em>", text: "Just tell me what the problem is. I'll suggest the simplest way to fix it.", button: "Start a Conversation" })}`;
 
   const serviceSchemas = services.map((c) => {
-    const names = c.services ? c.services.map((s) => s.name) : c.groups.flatMap((g) => g.items.map((i) => i.name)).concat(["Answer Engine Optimization", "Generative Engine Optimization"]);
+    const names = c.services.map((s) => s.name);
     return {
       "@type": "Service",
       "@id": abs(`/services/#${c.id}`),
@@ -781,7 +729,7 @@ function projectsPage() {
 ${pageHero({
   crumbs,
   title: `Selected projects, <em>honestly labelled.</em>`,
-  lede: "A curated selection rather than a full archive. Every project shows whether it is client work, a personal project, a demonstration or an experiment.",
+  lede: "A few projects I've picked to show my work. Each one is labelled as client work, a personal project, a demo or an experiment.",
 })}
 <section class="section surface-dark" aria-labelledby="projects-title" style="padding-top:0">
   <div class="container">
@@ -811,7 +759,7 @@ ${pageHero({
     <p class="empty-state" data-project-empty hidden>No projects in this category yet.</p>
   </div>
 </section>
-${cta({ title: "Have a project <em>in mind?</em>", text: "Whether it's a new WordPress site, an automation or a search audit, tell me what you're trying to achieve." })}`;
+${cta({ title: "Have a project <em>in mind?</em>", text: "A new WordPress site, an automation or an SEO audit? Tell me what you're trying to do." })}`;
 
   return layout({
     title: `Projects — WordPress, AI & SEO Work | ${site.name}`,
@@ -919,8 +867,8 @@ function blogPage() {
   const body = `
 ${pageHero({
   crumbs,
-  title: `Notes on WordPress, <em>AI and search.</em>`,
-  lede: "Practical, plain-language articles on building websites, using AI sensibly, and being found in search results and AI-generated answers.",
+  title: `Notes on WordPress, <em>AI and SEO.</em>`,
+  lede: "Simple, practical articles on building websites, using AI sensibly, and getting found on Google and in AI answers.",
 })}
 <section class="section surface-cream" aria-labelledby="featured-title">
   <div class="container">
@@ -968,7 +916,7 @@ ${pageHero({
     <p><button class="btn btn--ghost load-more" type="button" hidden data-load-more><span>Load more articles</span></button></p>
   </div>
 </section>
-${cta({ title: "Have a question <em>I could write about?</em>", text: "If there's a topic you'd like explained — or a problem you'd like solved — get in touch." })}`;
+${cta({ title: "Have a question <em>I could write about?</em>", text: "Is there a topic you'd like explained, or a problem you're stuck on? Let me know." })}`;
 
   return layout({
     title: `Blog — WordPress, AI, SEO, AEO & GEO Articles | ${site.name}`,
@@ -1083,7 +1031,7 @@ function contactPage() {
 ${pageHero({
   crumbs,
   title: `Let's talk about <em>your project.</em>`,
-  lede: "Tell me what you're working on: a new website, a redesign, an automation or a search problem. The more context you share, the more useful my reply will be.",
+  lede: "Tell me what you're working on: a new website, a redesign, an automation or an SEO problem. The more detail you share, the better I can help.",
 })}
 <section class="section surface-cream" aria-labelledby="form-title">
   <div class="container contact-layout">
@@ -1117,14 +1065,6 @@ ${pageHero({
       </form>
     </div>
     <aside class="contact-aside">
-      <div>
-        <h2>What happens next</h2>
-        <ol class="contact-steps">
-          <li>I read your message and reply personally.</li>
-          <li>If it's a good fit, we talk through your goals, scope and timeline.</li>
-          <li>You receive a clear written proposal before any work begins.</li>
-        </ol>
-      </div>
       ${direct.length ? `<div><h2>Direct contact</h2><div class="contact-direct">${direct.join("")}</div></div>` : ""}
       ${socials.length ? `<div><h2>Elsewhere</h2>${socialList()}</div>` : ""}
       <div>
@@ -1184,7 +1124,7 @@ function rss() {
   <title>${esc(site.name)} — Blog</title>
   <link>${abs("/blog/")}</link>
   <atom:link href="${abs("/feed.xml")}" rel="self" type="application/rss+xml"/>
-  <description>Articles on WordPress, AI and search.</description>
+  <description>Articles on WordPress, AI and SEO.</description>
   <language>${site.locale}</language>
 ${posts
   .map(

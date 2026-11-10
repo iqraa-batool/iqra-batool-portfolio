@@ -53,13 +53,13 @@ module.exports = [
     summary:
       "A help-centre structure for a fictional software company, organised around real customer questions and marked up so search engines and answer engines can understand each article.",
     objective:
-      "Demonstrate how SEO, AEO and GEO principles turn a support section into content that is easy to navigate, easy to quote and easy for machines to interpret.",
+      "Show how SEO, AEO and GEO can turn a support section into content that's easy to browse, easy to quote and easy for search engines and AI tools to understand.",
     role: "Information architecture, content structure, schema design and on-page SEO.",
     tech: ["WordPress", "Structured data (JSON-LD)", "HTML", "CSS"],
     approach: [
       "Grouped articles into topic clusters with a pillar page for each product area.",
       "Wrote headings as the questions customers ask, each followed by a direct answer in the first paragraph.",
-      "Added Article, BreadcrumbList and FAQPage markup only where the content genuinely matched the type.",
+      "Added Article, BreadcrumbList and FAQPage markup only where the content actually matched the type.",
       "Planned internal links between related answers so every article sits in context.",
     ],
     outcome:
@@ -78,7 +78,7 @@ module.exports = [
     summary:
       "A workflow concept that reads incoming contact-form enquiries, suggests a category and priority with a language model, and routes each one to the right person, with a human always confirming.",
     objective:
-      "Show how a small business could stop sorting its inbox by hand, while keeping control over every decision the automation suggests.",
+      "Show how a small business could stop sorting its inbox by hand while still having the final say on every suggestion.",
     role: "Process mapping, workflow design and integration architecture.",
     tech: ["WordPress forms", "Webhooks", "Language model API (server-side)", "Spreadsheet / CRM"],
     approach: [

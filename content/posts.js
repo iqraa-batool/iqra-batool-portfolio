@@ -36,7 +36,7 @@ const posts = [
     date: "2026-11-10",
     featured: true,
     excerpt:
-      "Answer engines don't show ten blue links — they show one answer. Here's what AEO means, how it differs from SEO, and how to structure content that answers well.",
+      "Answer engines don't show ten blue links. They show one answer. Here's what AEO is, how it's different from SEO, and how to write content that gets picked.",
     body: `
 <p><strong>Answer Engine Optimization (AEO) is the practice of structuring content so that search features and assistants can pull a clear, direct answer from it.</strong> Where traditional SEO aims for a good position in a list of results, AEO aims to be <em>the</em> answer: the featured snippet, the spoken reply from a voice assistant, or the expanded result under a "People also ask" question.</p>
 
@@ -54,19 +54,19 @@ const posts = [
 <h3>1. Lead with the answer</h3>
 <p>Put a one- or two-sentence answer directly after the question heading. Detail, nuance and examples come next. This "inverted pyramid" style helps readers who skim as much as it helps machines.</p>
 <h3>2. Use the questions people actually ask</h3>
-<p>Look at search suggestions, "People also ask" boxes, support tickets and sales calls. Use those questions — in plain language — as headings.</p>
+<p>Look at search suggestions, "People also ask" boxes, support tickets and sales calls. Use those questions, in plain words, as your headings.</p>
 <h3>3. Choose the right format for the question</h3>
 <p>"What is…" questions want a definition. "How do I…" questions want numbered steps. "Which is better…" questions want a comparison, often a table. Matching the format to the intent makes the answer easier to lift.</p>
 <h3>4. Make each section stand on its own</h3>
 <p>An answer engine may quote a single paragraph. If that paragraph only makes sense after reading the three before it, it's a weak candidate. Name the subject again instead of relying on "it" or "this".</p>
-<h3>5. Add structured data where it is genuinely accurate</h3>
+<h3>5. Add structured data only where it fits</h3>
 <p>Schema markup such as <code>Article</code>, <code>HowTo</code> or <code>FAQPage</code> describes your content to search engines. Only use a type when the page really is that thing. Note that Google has narrowed when some types produce visual rich results. FAQ rich results, for example, are now shown mainly for well-known government and health sites, but accurate markup still helps describe the page.</p>
 
 <h2>A quick AEO checklist</h2>
 <ol>
   <li>Does each important question have its own heading?</li>
   <li>Is there a direct answer in the first sentence or two beneath it?</li>
-  <li>Is the format — definition, steps, list, table — right for the question?</li>
+  <li>Is the format (definition, steps, list or table) right for the question?</li>
   <li>Would the key paragraph make sense if quoted alone?</li>
   <li>Is the author or organisation behind the content clear?</li>
   <li>Is any structured data accurate and valid?</li>
@@ -83,7 +83,7 @@ const posts = [
     date: "2026-11-10",
     featured: true,
     excerpt:
-      "AI-powered search writes its own summaries and cites a handful of sources. GEO is about being a source worth citing. A practical introduction.",
+      "AI search writes its own summaries and cites a few sources. GEO is about being one of them. Here's how it works.",
     body: `
 <p><strong>Generative Engine Optimization (GEO) is the practice of making content easy for AI-powered search systems to understand, trust and cite when they generate an answer.</strong> Tools such as Google's AI Overviews, ChatGPT search, Perplexity and Microsoft Copilot don't just list pages. They write a summary and reference the sources they drew from. GEO is about being one of those sources.</p>
 
@@ -94,7 +94,7 @@ const posts = [
 <p>A traditional results page ranks whole pages. A generative system reads many pages, extracts passages, and combines them into a new answer. That means:</p>
 <ul>
   <li>Individual <strong>passages</strong> matter, not just the page as a whole.</li>
-  <li><strong>Clarity about entities</strong> — who you are, what you offer, what a term means — reduces the chance of being misunderstood.</li>
+  <li><strong>Clear entities.</strong> Being clear about who you are, what you offer and what your terms mean makes you harder to misunderstand.</li>
   <li><strong>Credibility signals</strong> help a system decide which sources are worth repeating.</li>
 </ul>
 
@@ -104,7 +104,7 @@ const posts = [
 <h3>Write passages that survive being quoted</h3>
 <p>Each section should make one clear point that is understandable on its own. A summary sentence at the start of a section is often the part that gets used.</p>
 <h3>Show your evidence</h3>
-<p>Link to primary sources, explain where figures come from, and use specific examples. Unsupported claims are weaker material for a system that is trying to give a reliable answer — and for readers.</p>
+<p>Link to primary sources, explain where figures come from, and use specific examples. Unsupported claims are weaker material for a system that is trying to give a reliable answer, and for readers too.</p>
 <h3>Cover the topic, not just the keyword</h3>
 <p>People ask generative tools follow-up questions. Content that anticipates those (definitions, comparisons, edge cases, next steps) gives the system more useful material.</p>
 <h3>Keep it current</h3>
@@ -114,7 +114,7 @@ const posts = [
 <p>Most generative search systems still depend on being able to find and crawl your pages, and many draw on traditional search indexes. A technically healthy, well-linked site remains the foundation. GEO adds a sharper focus on clarity, structure and credibility on top.</p>
 
 <h2>An honest note on guarantees</h2>
-<p>Nobody can promise that an AI system will cite a particular page; the providers decide how their systems choose sources, and those methods change. What you can control is whether your content is accurate, clearly structured and genuinely useful: the qualities every one of these systems is trying to find.</p>
+<p>Nobody can promise that an AI system will cite a particular page; the providers decide how their systems choose sources, and those methods change. What you can control is whether your content is accurate, clearly structured and useful: the qualities every one of these systems is trying to find.</p>
 `,
   },
   {
@@ -124,7 +124,7 @@ const posts = [
     date: "2026-11-10",
     featured: true,
     excerpt:
-      "Three acronyms, one foundation. A plain-language comparison of search, answer and generative engine optimisation — and where to start.",
+      "Three acronyms, one foundation. A simple comparison of SEO, AEO and GEO, and where to start.",
     body: `
 <p><strong>SEO helps pages rank in search results, AEO helps content become a direct answer, and GEO helps content get understood and cited by AI-generated summaries.</strong> They target different surfaces, but they rest on the same foundation: a crawlable, fast, trustworthy site with clear and accurate content.</p>
 
@@ -143,7 +143,7 @@ const posts = [
 <ul>
   <li><strong>Crawlability.</strong> If a page can't be found and read, none of the three can work.</li>
   <li><strong>Usefulness.</strong> Thin or generic content performs poorly everywhere.</li>
-  <li><strong>Structure.</strong> Clear headings and logical organisation help every kind of system — and every reader.</li>
+  <li><strong>Structure.</strong> Clear headings and logical organisation help every kind of system, and every reader.</li>
   <li><strong>Trust.</strong> Real authorship, accurate information and a credible site.</li>
 </ul>
 
@@ -167,7 +167,7 @@ const posts = [
     date: "2026-11-10",
     featured: false,
     excerpt:
-      "A practical, step-by-step audit process — from crawling and indexing to content and links — with a way to prioritise what you find.",
+      "A step-by-step SEO audit, from crawling and indexing to content and links, plus a simple way to decide what to fix first.",
     body: `
 <p><strong>An SEO audit is a structured review of how well a website can be found, understood and trusted by search engines, followed by a prioritised list of fixes.</strong> The value isn't in the length of the issue list; it's in knowing which few changes will matter most.</p>
 
@@ -202,7 +202,7 @@ const posts = [
 <p>Validate any schema with the <a href="https://search.google.com/test/rich-results" rel="noopener">Rich Results Test</a> or the <a href="https://validator.schema.org/" rel="noopener">Schema Markup Validator</a>. Check that business or author details are consistent across the site.</p>
 
 <h2>Step 8: Check the backlink profile</h2>
-<p>Understand which sites link to you and which pages attract links. Look for broken pages that still receive links — redirecting those is often a quick win.</p>
+<p>Understand which sites link to you and which pages attract links. Look for broken pages that still get links. Redirecting those is often a quick win.</p>
 
 <h2>Prioritising what you found</h2>
 <p>Score each issue by <strong>impact</strong> (how much it affects important pages) and <strong>effort</strong> (how hard it is to fix). Start with high-impact, low-effort fixes; schedule high-impact, high-effort work; and question whether low-impact items are worth doing at all. A short, ordered action list is the real deliverable of any audit.</p>
@@ -215,16 +215,16 @@ const posts = [
     date: "2026-11-10",
     featured: false,
     excerpt:
-      "Slow WordPress sites usually have a handful of causes. Here's how to measure properly and fix the ones that matter most.",
+      "A slow WordPress site usually comes down to a few causes. Here's how to measure speed properly and fix what matters most.",
     body: `
 <p><strong>Most slow WordPress sites suffer from the same few problems: oversized images, too many plugins loading assets on every page, heavy themes, missing caching and underpowered hosting.</strong> Fixing them in the right order usually brings bigger gains than any single "speed plugin".</p>
 
 <h2>Measure first</h2>
 <p>Test a few representative pages (the homepage, a typical post, a key landing page) in <a href="https://pagespeed.web.dev/" rel="noopener">PageSpeed Insights</a>. Pay attention to the field data (real visitors) when it's available, and to the three Core Web Vitals:</p>
 <ul>
-  <li><strong>Largest Contentful Paint (LCP)</strong> — how quickly the main content appears. Good is 2.5 seconds or less.</li>
-  <li><strong>Interaction to Next Paint (INP)</strong> — how quickly the page responds to input. Good is 200 milliseconds or less.</li>
-  <li><strong>Cumulative Layout Shift (CLS)</strong> — how much content jumps around. Good is 0.1 or less.</li>
+  <li><strong>Largest Contentful Paint (LCP):</strong> how quickly the main content appears. Good is 2.5 seconds or less.</li>
+  <li><strong>Interaction to Next Paint (INP):</strong> how quickly the page responds to input. Good is 200 milliseconds or less.</li>
+  <li><strong>Cumulative Layout Shift (CLS):</strong> how much content jumps around. Good is 0.1 or less.</li>
 </ul>
 
 <h2>1. Optimise images</h2>
@@ -243,7 +243,7 @@ const posts = [
 <ul>
   <li>Limit font families and weights, and use <code>font-display: swap</code>.</li>
   <li>Defer non-critical JavaScript.</li>
-  <li>Be cautious with third-party scripts — chat widgets, trackers and embeds can cost more than everything else combined.</li>
+  <li>Be cautious with third-party scripts. Chat widgets, trackers and embeds can cost more than everything else combined.</li>
 </ul>
 
 <h2>6. Prevent layout shift</h2>
@@ -263,7 +263,7 @@ const posts = [
     date: "2026-11-10",
     featured: false,
     excerpt:
-      "How to turn a Figma design into a WordPress site that matches the design and stays editable — from design tokens to block patterns.",
+      "How to turn a Figma design into a WordPress site that matches the design and stays editable, from design tokens to block patterns.",
     body: `
 <p><strong>A good Figma-to-WordPress build does two things at once: it matches the design closely, and it leaves the client with a site they can edit without breaking it.</strong> The process below balances both.</p>
 
@@ -276,9 +276,9 @@ const posts = [
 <h2>3. Decide what should be editable</h2>
 <p>Not everything in a design should be equally flexible. Text and images usually should; the structure of a carefully composed section often shouldn't. Plan which parts become:</p>
 <ul>
-  <li><strong>Templates</strong> — fixed page structures, such as a single blog post.</li>
-  <li><strong>Block patterns</strong> — pre-designed sections editors can insert and fill.</li>
-  <li><strong>Custom blocks</strong> — for components the core blocks can't express.</li>
+  <li><strong>Templates:</strong> fixed page structures, such as a single blog post.</li>
+  <li><strong>Block patterns:</strong> pre-designed sections editors can insert and fill.</li>
+  <li><strong>Custom blocks:</strong> for components the core blocks can't express.</li>
 </ul>
 
 <h2>4. Build mobile layouts deliberately</h2>
@@ -304,7 +304,7 @@ const posts = [
     date: "2026-11-10",
     featured: false,
     excerpt:
-      "Useful ways to add AI to a website — and the security, cost and accuracy questions to answer before you do.",
+      "Useful ways to add AI to a website, and the security, cost and accuracy questions to ask before you do.",
     body: `
 <p><strong>The most useful AI integrations on websites solve a specific problem visitors or staff already have: finding information, sorting requests, or drafting routine text, rather than adding AI for its own sake.</strong> Here are practical options, and the questions to answer before building any of them.</p>
 
@@ -314,7 +314,7 @@ const posts = [
 <h3>Answer assistants grounded in your content</h3>
 <p>An assistant that answers questions using only your own pages and documents can handle routine queries at any hour. The important word is <em>grounded</em>: it should draw on your content and say when it doesn't know, rather than inventing an answer.</p>
 <h3>Enquiry sorting</h3>
-<p>Contact-form messages can be categorised and summarised automatically, then routed to the right person. A human still reads and replies — the AI just removes the sorting step.</p>
+<p>Contact-form messages can be categorised and summarised automatically, then routed to the right person. A person still reads and replies. The AI just does the sorting.</p>
 <h3>Content assistance for editors</h3>
 <p>Inside the CMS, AI can suggest summaries, alt text drafts or meta descriptions for an editor to review. This speeds up publishing without handing over editorial judgement.</p>
 
@@ -341,7 +341,7 @@ const posts = [
     date: "2026-11-10",
     featured: false,
     excerpt:
-      "What structured data is, why JSON-LD is the usual choice, which types matter for most sites — and the mistakes to avoid.",
+      "What structured data is, why JSON-LD is the usual choice, which types matter for most sites, and the mistakes to avoid.",
     body: `
 <p><strong>Structured data is code that describes the content of a page in a standard vocabulary, so search engines can understand exactly what it is: an article, a product, a person, an event.</strong> The vocabulary most commonly used is <a href="https://schema.org/" rel="noopener">Schema.org</a>, and the recommended format is usually JSON-LD.</p>
 
@@ -361,17 +361,17 @@ const posts = [
 <ul>
   <li><strong>Understanding.</strong> It removes ambiguity about what a page is and who is behind it.</li>
   <li><strong>Eligibility for rich results.</strong> Some types can make a page eligible for enhanced search displays, such as breadcrumbs or product details. Eligibility is not a guarantee.</li>
-  <li><strong>Entity clarity.</strong> Consistent <code>Person</code> or <code>Organization</code> data helps connect your content to you — useful for search and for AI systems.</li>
+  <li><strong>Entity clarity.</strong> Consistent <code>Person</code> or <code>Organization</code> data helps connect your content to you, which helps with SEO and AI tools.</li>
 </ul>
 
 <h2>Types most sites should consider</h2>
 <ul>
-  <li><code>Organization</code> or <code>Person</code> — who runs the site.</li>
-  <li><code>WebSite</code> — the site itself.</li>
-  <li><code>BreadcrumbList</code> — where a page sits in the site structure.</li>
-  <li><code>Article</code> or <code>BlogPosting</code> — for editorial content.</li>
-  <li><code>LocalBusiness</code> — for businesses serving a physical area.</li>
-  <li><code>Product</code> — for ecommerce product pages.</li>
+  <li><code>Organization</code> or <code>Person</code>: who runs the site.</li>
+  <li><code>WebSite</code>: the site itself.</li>
+  <li><code>BreadcrumbList</code>: where a page sits in the site structure.</li>
+  <li><code>Article</code> or <code>BlogPosting</code>: for editorial content.</li>
+  <li><code>LocalBusiness</code>: for businesses serving a physical area.</li>
+  <li><code>Product</code>: for ecommerce product pages.</li>
 </ul>
 
 <h2>Common mistakes</h2>
@@ -380,7 +380,7 @@ const posts = [
 <h3>Inventing details</h3>
 <p>Fake ratings, made-up addresses or inflated credentials can lead to manual actions, and they damage trust. Only include accurate information.</p>
 <h3>Using the wrong type</h3>
-<p>A service page isn't a product; a blog post isn't a news article. Choose the type that genuinely fits.</p>
+<p>A service page isn't a product; a blog post isn't a news article. Pick the type that actually fits.</p>
 <h3>Never validating</h3>
 <p>Test markup with the <a href="https://search.google.com/test/rich-results" rel="noopener">Rich Results Test</a> or the <a href="https://validator.schema.org/" rel="noopener">Schema Markup Validator</a>, and check Search Console's enhancement reports after publishing.</p>
 
