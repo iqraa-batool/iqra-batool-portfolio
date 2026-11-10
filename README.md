@@ -150,7 +150,7 @@ Configure the host to serve `404.html` for missing pages; most do this automatic
 
 Nothing personal was invented, so these are blank or placeholders until you provide them:
 
-- [x] **Domain**: `siteUrl` is set to https://iqra-batool-portfolio.vercel.app (change it if you add a custom domain)
+- [x] **Domain**: `siteUrl` is set to https://iqrabatool.vercel.app (change it if you add a custom domain)
 - [ ] **Phone and location**: `contact` (optional; your email is already set)
 - [ ] **Social profile URLs** and the X/Twitter handle
 - [ ] **Form endpoint**: `form.endpoint`

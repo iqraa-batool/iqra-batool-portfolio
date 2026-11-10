@@ -10,7 +10,7 @@ module.exports = {
 
   // REQUIRED BEFORE DEPLOYING: your real domain, no trailing slash.
   // Used for canonical URLs, the sitemap, Open Graph images and structured data.
-  siteUrl: "https://iqra-batool-portfolio.vercel.app",
+  siteUrl: "https://iqrabatool.vercel.app",
 
   locale: "en",
   roles: ["WordPress Developer", "AI Solutions Builder", "SEO Specialist"],
