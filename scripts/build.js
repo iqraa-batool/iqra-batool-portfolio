@@ -375,7 +375,6 @@ function homePage() {
   ];
   const codeSnippet = `{
   "@type": "Person",
-  "name": "${site.name}",
   "jobTitle": ["WordPress Developer",
     "AI Solutions Builder", "SEO Specialist"],
   "knowsAbout": ["WordPress", "AEO", "GEO"]
@@ -403,7 +402,6 @@ function homePage() {
       </div>
       <div class="answer__body">
         <div>
-          <p class="answer__name">${esc(site.name)}</p>
           <p class="answer__roles">${esc(site.roles.join(" · "))}</p>
         </div>
         <dl class="answer__facts">
