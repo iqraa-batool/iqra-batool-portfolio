@@ -12,6 +12,7 @@
 
 const fs = require("fs");
 const path = require("path");
+const crypto = require("crypto");
 
 const ROOT = path.resolve(__dirname, "..");
 const OUT = path.join(ROOT, "public");
@@ -23,6 +24,11 @@ const services = require("../content/services");
 const projects = require("../content/projects");
 const { categories: postCategories, posts: rawPosts } = require("../content/posts");
 const { renderArt, ART_SIZE } = require("./art");
+
+// Content hash per asset so browsers fetch new CSS/JS after every change.
+const assetVersion = (rel) => crypto.createHash("md5").update(fs.readFileSync(path.join(SRC, rel))).digest("hex").slice(0, 10);
+const CSS_V = assetVersion("css/main.css");
+const JS_V = assetVersion("js/main.js");
 
 const BASE = site.siteUrl.replace(/\/+$/, "");
 const BUILD_YEAR = new Date().getFullYear();
@@ -288,7 +294,7 @@ ${site.twitterHandle ? `<meta name="twitter:site" content="${esc(site.twitterHan
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/main.css?v=${CSS_V}">
 <link rel="alternate" type="application/rss+xml" title="${esc(site.name)} — Blog" href="/feed.xml">
 <script>document.documentElement.classList.add("js")</script>
 ${graph}
@@ -300,7 +306,7 @@ ${header(pagePath)}
 ${body}
 </main>
 ${footer()}
-<script src="/assets/js/main.js" defer></script>
+<script src="/assets/js/main.js?v=${JS_V}" defer></script>
 </body>
 </html>
 `;
