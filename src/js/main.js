@@ -31,6 +31,58 @@
     onScroll();
   }
 
+  /* Hero: soft light follows the pointer on devices with a mouse */
+  var hero = $(".hero");
+  if (hero && window.matchMedia("(hover: hover) and (pointer: fine)").matches && !reduceMotion.matches) {
+    var raf = null;
+    hero.addEventListener("pointermove", function (ev) {
+      if (raf) return;
+      raf = window.requestAnimationFrame(function () {
+        var r = hero.getBoundingClientRect();
+        hero.style.setProperty("--mx", (ev.clientX - r.left) + "px");
+        hero.style.setProperty("--my", (ev.clientY - r.top) + "px");
+        hero.classList.add("is-lit");
+        raf = null;
+      });
+    });
+    hero.addEventListener("pointerleave", function () { hero.classList.remove("is-lit"); });
+  }
+
+  var finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+  /* Scroll progress bar and hero parallax */
+  if (!reduceMotion.matches) {
+    var bar = document.createElement("div");
+    bar.className = "scroll-progress";
+    bar.setAttribute("aria-hidden", "true");
+    document.body.appendChild(bar);
+    var ticking2 = false;
+    var onScroll2 = function () {
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      var y = window.scrollY;
+      bar.style.transform = "scaleX(" + (max > 0 ? Math.min(y / max, 1) : 0) + ")";
+      if (hero && y < window.innerHeight * 1.2) hero.style.setProperty("--py", String(y));
+      ticking2 = false;
+    };
+    window.addEventListener("scroll", function () {
+      if (!ticking2) { window.requestAnimationFrame(onScroll2); ticking2 = true; }
+    }, { passive: true });
+    onScroll2();
+  }
+
+  /* Magnetic buttons: a gentle pull toward the pointer */
+  if (finePointer && !reduceMotion.matches) {
+    $$(".btn, .btn-talk").forEach(function (btn) {
+      btn.addEventListener("pointermove", function (ev) {
+        var r = btn.getBoundingClientRect();
+        var dx = (ev.clientX - (r.left + r.width / 2)) / r.width;
+        var dy = (ev.clientY - (r.top + r.height / 2)) / r.height;
+        btn.style.transform = "translate(" + (dx * 8).toFixed(1) + "px," + (dy * 6).toFixed(1) + "px)";
+      });
+      btn.addEventListener("pointerleave", function () { btn.style.transform = ""; });
+    });
+  }
+
   /* Mobile menu */
   var toggle = $(".nav-toggle");
   var nav = $("#site-nav");
@@ -62,6 +114,14 @@
   }
 
   /* Reveal on scroll (opt-in; content is visible without JS or with reduced motion) */
+  /* Staggered lists: children rise in one after another */
+  if (!reduceMotion.matches) {
+    $$(".why__list, .process, .tools, .posts, .service-index, .stats, .skills, .svc-list, .work-list").forEach(function (list) {
+      list.setAttribute("data-stagger", "");
+      list.classList.add("reveal");
+      Array.prototype.forEach.call(list.children, function (child, i) { child.style.setProperty("--i", String(Math.min(i, 8))); });
+    });
+  }
   var revealEls = $$(".reveal");
   if (revealEls.length && "IntersectionObserver" in window && !reduceMotion.matches) {
     var io = new IntersectionObserver(function (entries) {

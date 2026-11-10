@@ -373,6 +373,7 @@ function homePage() {
   const body = `
 <section class="hero section surface-dark" aria-labelledby="hero-title">
   <div class="hero__glow" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="hero__spot" aria-hidden="true"></div>
   <div class="container hero__inner">
     ${site.availability ? `<p class="hero__availability hero__fade">${esc(site.availability)}</p>` : ""}
     <h1 id="hero-title"><span class="line">Websites that work.</span> <span class="line"><em>And get you found.</em></span></h1>
