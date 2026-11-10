@@ -430,7 +430,7 @@ html { scrollbar-color: var(--plum-raised) var(--plum-deep); }
 
 /* Services index (home) */
 .service-index { list-style: none; padding: 0; border-top: 1px solid var(--line-strong); }
-.service-index__item { border-bottom: 1px solid var(--line); }
+.service-index__item { border-bottom: 1px solid var(--line); max-width: none; }
 .service-index__link {
   display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr) auto; gap: 2rem; align-items: center;
   padding-block: clamp(1.75rem, 1.25rem + 1.5vw, 2.75rem); text-decoration: none; color: inherit;
