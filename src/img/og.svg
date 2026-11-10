@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#292333"/>
+  <rect x="0" y="0" width="12" height="630" fill="#482B63"/>
+  <g transform="translate(96 92) scale(1.6)">
+    <path d="M8 12h15.2v3.2H18v33.6h5.2V52H8v-3.2h5.2V15.2H8z" fill="#FAF6F0"/><path d="M28 12h5v40h-5z" fill="#FAF6F0"/>
+    <path d="M30.5 13.8H42a8.6 8.6 0 0 1 0 17.2H30.5M30.5 31H44a9.6 9.6 0 0 1 0 19.2H30.5" fill="none" stroke="#FAF6F0" stroke-width="3.6"/>
+    <circle cx="30.5" cy="31" r="2.6" fill="#D4AF37"/>
+  </g>
+  <text x="96" y="330" font-family="'Cormorant Garamond', Georgia, serif" font-size="92" font-weight="500" fill="#FAF6F0">Iqra Batool</text>
+  <text x="100" y="404" font-family="Poppins, Arial, sans-serif" font-size="30" fill="#DCD0E9">WordPress Developer · AI Solutions Builder · SEO Specialist</text>
+  <line x1="100" y1="470" x2="180" y2="470" stroke="#D4AF37" stroke-width="2"/>
+  <text x="100" y="530" font-family="'Cormorant Garamond', Georgia, serif" font-size="40" font-style="italic" fill="#E8B8C6">Building digital experiences. Creating intelligent solutions.</text>
+</svg>

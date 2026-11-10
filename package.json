@@ -1,0 +1,16 @@
+{
+  "name": "iqra-batool-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portfolio website of Iqra Batool — WordPress Developer, AI Solutions Builder and SEO Specialist. Static HTML, CSS and JavaScript.",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "serve": "node scripts/serve.js",
+    "start": "node scripts/build.js && node scripts/serve.js",
+    "icons": "node scripts/icons.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "UNLICENSED"
+}
