@@ -34,10 +34,10 @@
   --f-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   --f-code: ui-monospace, "Cascadia Code", Consolas, monospace;
 
-  --t-hero: clamp(2.9rem, 1.6rem + 5.2vw, 6rem);
-  --t-h1: clamp(2.6rem, 1.8rem + 3.6vw, 5rem);
-  --t-h2: clamp(2.1rem, 1.5rem + 2.6vw, 3.75rem);
-  --t-h3: clamp(1.45rem, 1.2rem + 0.9vw, 2rem);
+  --t-hero: clamp(3.4rem, 1.8rem + 6.4vw, 7.4rem);
+  --t-h1: clamp(3rem, 2rem + 4.4vw, 6rem);
+  --t-h2: clamp(2.5rem, 1.7rem + 3.2vw, 4.5rem);
+  --t-h3: clamp(1.7rem, 1.35rem + 1.1vw, 2.4rem);
   --t-lede: clamp(1.125rem, 1.04rem + 0.4vw, 1.35rem);
   --t-body: 1.0625rem;
   --t-small: 0.9375rem;
@@ -102,16 +102,17 @@ a:hover { text-decoration-thickness: 2px; }
 p, li, dd { max-width: 70ch; }
 h1, h2, h3, h4 {
   font-family: var(--f-display);
-  font-weight: 700;
+  font-weight: 900;
   color: var(--ink);
-  line-height: 1;
-  letter-spacing: 0.005em;
+  line-height: 0.9;
+  letter-spacing: -0.005em;
+  text-transform: uppercase;
   text-wrap: balance;
 }
 h1 { font-size: var(--t-h1); }
 h2 { font-size: var(--t-h2); }
-h3 { font-size: var(--t-h3); line-height: 1.1; font-weight: 600; }
-h4 { font-family: var(--f-ui); font-size: 1rem; font-weight: 500; letter-spacing: 0; }
+h3 { font-size: var(--t-h3); line-height: 0.95; font-weight: 800; }
+h4 { font-family: var(--f-ui); font-size: 1rem; font-weight: 500; letter-spacing: 0; text-transform: none; line-height: 1.3; }
 em, i { font-style: italic; }
 h1 em, h2 em { color: var(--pink); font-style: normal; font-weight: inherit; }
 .surface-cream h1 em, .surface-cream h2 em { color: var(--royal); }
@@ -342,7 +343,7 @@ html { scrollbar-color: var(--plum-raised) var(--plum-deep); }
 /* Hero */
 .hero { padding-top: calc(var(--header-h) + clamp(2.5rem, 1rem + 5vw, 6rem)); padding-bottom: var(--section); position: relative; }
 .hero__grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: clamp(2.5rem, 1rem + 5vw, 6rem); align-items: center; }
-.hero h1 { font-size: var(--t-hero); line-height: 1.02; letter-spacing: -0.02em; }
+.hero h1 { font-size: var(--t-hero); line-height: 0.88; letter-spacing: -0.005em; }
 .hero h1 .line { display: block; }
 .hero__text { display: grid; gap: 2rem; }
 .hero__text .lede { max-width: 36rem; }
@@ -414,7 +415,7 @@ html { scrollbar-color: var(--plum-raised) var(--plum-deep); }
   display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr) auto; gap: 2rem; align-items: center;
   padding-block: clamp(1.75rem, 1.25rem + 1.5vw, 2.75rem); text-decoration: none; color: inherit;
 }
-.service-index__title { font-family: var(--f-display); font-size: clamp(1.9rem, 1.4rem + 2vw, 3.1rem); color: var(--ink); line-height: 1.05; transition: color 0.3s ease; }
+.service-index__title { font-family: var(--f-display); font-weight: 900; text-transform: uppercase; font-size: clamp(2.2rem, 1.6rem + 2.4vw, 3.6rem); color: var(--ink); line-height: 0.92; transition: color 0.3s ease; }
 .service-index__summary { color: var(--ink-soft); font-size: 1rem; }
 .service-index__arrow { width: 52px; height: 52px; border: 1px solid var(--line-strong); border-radius: 50%; display: grid; place-items: center; color: var(--ink); transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; }
 .service-index__arrow svg { width: 20px; height: 20px; }

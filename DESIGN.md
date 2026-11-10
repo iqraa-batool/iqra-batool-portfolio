@@ -4,7 +4,7 @@ How the site looks and why, plus the record of the Impeccable design review.
 
 ## Direction
 
-The site is dark first and reads like a magazine. Midnight Plum is the canvas. The headings use Big Shoulders Display, a tall condensed face, set large and bold, with key words picked out in pink. Cream sections break up the long dark pages. Gold is rare on purpose: it appears only in the monogram's dot, small rules and a few labels. That keeps it feeling like an accent rather than decoration.
+The site is dark first and reads like a magazine. Midnight Plum is the canvas. The headings use Big Shoulders Display, a tall condensed face, set large and bold, in heavy uppercase (weight 900, tight leading) like the reference site wptechstudio.com, with key words picked out in pink. Cream sections break up the long dark pages. Gold is rare on purpose: it appears only in the monogram's dot, small rules and a few labels. That keeps it feeling like an accent rather than decoration.
 
 What the design deliberately avoids:
 
