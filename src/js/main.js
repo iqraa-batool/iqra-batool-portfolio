@@ -99,66 +99,6 @@
     stats.forEach(function (el) { countIO.observe(el); });
   }
 
-  /* Hero answer card: cycles three questions and highlights the matching focus area.
-   * Pauses on hover/focus and via the pause button (WCAG 2.2.2). Static under reduced motion. */
-  var answer = $("[data-answer]");
-  if (answer) {
-    var textEl = $(".answer__text", answer);
-    var pauseBtn = $(".answer__pause", answer);
-    var chips = $$("[data-focus]", answer);
-    var queries;
-    try { queries = JSON.parse(answer.getAttribute("data-queries")); } catch (e) { queries = []; }
-    var index = 0, paused = false, hovering = false, timer = null, typing = null;
-
-    var highlight = function (key) {
-      chips.forEach(function (c) { c.classList.toggle("is-active", c.getAttribute("data-focus") === key); });
-    };
-    var type = function (str, done) {
-      var i = 0;
-      clearInterval(typing);
-      textEl.textContent = "";
-      typing = setInterval(function () {
-        i++;
-        textEl.textContent = str.slice(0, i);
-        if (i >= str.length) { clearInterval(typing); if (done) done(); }
-      }, 34);
-    };
-    var show = function () {
-      var q = queries[index];
-      if (!q) return;
-      highlight(q.focus);
-      if (reduceMotion.matches) { textEl.textContent = q.text; return; }
-      type(q.text);
-    };
-    var schedule = function () {
-      clearTimeout(timer);
-      if (paused || hovering || reduceMotion.matches || queries.length < 2) return;
-      timer = setTimeout(function () {
-        index = (index + 1) % queries.length;
-        show();
-        schedule();
-      }, 5200);
-    };
-    if (queries.length) {
-      highlight(queries[0].focus);
-      if (!reduceMotion.matches && pauseBtn) {
-        pauseBtn.hidden = false;
-        pauseBtn.addEventListener("click", function () {
-          paused = !paused;
-          pauseBtn.setAttribute("aria-pressed", String(paused));
-          pauseBtn.setAttribute("aria-label", paused ? "Play example questions" : "Pause example questions");
-          pauseBtn.innerHTML = paused ? pauseBtn.getAttribute("data-play") : pauseBtn.getAttribute("data-pause");
-          schedule();
-        });
-        answer.addEventListener("mouseenter", function () { hovering = true; clearTimeout(timer); });
-        answer.addEventListener("mouseleave", function () { hovering = false; schedule(); });
-        answer.addEventListener("focusin", function () { hovering = true; clearTimeout(timer); });
-        answer.addEventListener("focusout", function () { hovering = false; schedule(); });
-        schedule();
-      }
-    }
-  }
-
   /* Filter helper used by projects and blog */
   var announce = function (el, count, noun) {
     if (!el) return;

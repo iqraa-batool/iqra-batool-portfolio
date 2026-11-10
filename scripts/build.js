@@ -101,8 +101,6 @@ const ICON_PATHS = {
   check: '<circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/>',
   plus: '<path d="M12 5v14M5 12h14"/>',
   up: '<path d="M12 19V5M6 11l6-6 6 6"/>',
-  pause: '<path d="M8 5v14M16 5v14" stroke-width="2"/>',
-  play: '<path d="M7 5l12 7-12 7z" fill="currentColor"/>',
   mail: '<rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 7l9 6 9-6"/>',
   phone: '<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/>',
   pin: '<path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>',
@@ -368,54 +366,21 @@ function postItem(p, headingLevel = "h3") {
 
 /* ------------------------------------------------------------------- pages */
 function homePage() {
-  const queries = [
-    { text: "Who can build a fast WordPress site we can edit ourselves?", focus: "web" },
-    { text: "Who can add AI to our workflow without the hype?", focus: "ai" },
-    { text: "Who can help us show up on Google and in AI answers?", focus: "search" },
-  ];
-  const codeSnippet = `{
-  "@type": "Person",
-  "jobTitle": ["WordPress Developer",
-    "AI Solutions Builder", "SEO Specialist"],
-  "knowsAbout": ["WordPress", "AEO", "GEO"]
-}`;
   const featured = projectList.filter((p) => p.featured).slice(0, 4);
   const blogPreview = [...posts.filter((p) => p.featured), ...posts.filter((p) => !p.featured)].slice(0, 3);
   const statText = (s) => s.value.toFixed(s.decimals) + s.suffix;
 
   const body = `
 <section class="hero section surface-dark" aria-labelledby="hero-title">
-  <div class="container hero__grid">
-    <div class="hero__text">
-      <h1 id="hero-title"><span class="line">Websites that work.</span> <span class="line"><em>And get you found.</em></span></h1>
-      <p class="lede hero__fade">Hi, I'm ${esc(site.name)}. I build WordPress websites, set up AI tools and automations, and handle SEO so the right people can find you.</p>
-      <div class="hero__actions hero__fade">
+  <div class="hero__glow" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="container hero__inner">
+    ${site.availability ? `<p class="hero__availability hero__fade">${esc(site.availability)}</p>` : ""}
+    <h1 id="hero-title"><span class="line">Websites that work.</span> <span class="line"><em>And get you found.</em></span></h1>
+    <div class="hero__foot hero__fade">
+      <p class="lede">Hi, I'm ${esc(site.name)}. I build WordPress websites, set up AI tools and automations, and handle SEO so the right people can find you.</p>
+      <div class="hero__actions">
         <a class="btn" href="/projects/"><span>See my work</span>${icon("arrow")}</a>
         <a class="link-arrow" href="/contact/"><span>Let's work together</span>${icon("arrow")}</a>
-      </div>
-      ${site.availability ? `<p class="hero__availability hero__fade">${esc(site.availability)}</p>` : ""}
-    </div>
-    <div class="answer hero__fade" data-answer data-queries="${esc(JSON.stringify(queries))}" role="group" aria-label="Profile summary">
-      <div class="answer__bar">
-        <div class="answer__query" aria-hidden="true">${icon("search")}<span class="answer__text">${esc(queries[0].text)}</span><span class="answer__caret"></span></div>
-        <button class="answer__pause" type="button" hidden aria-pressed="false" aria-label="Pause example questions" data-pause="${esc(icon("pause"))}" data-play="${esc(icon("play"))}">${icon("pause")}</button>
-      </div>
-      <div class="answer__body">
-        <div>
-          <p class="answer__roles">${esc(site.roles.join(" · "))}</p>
-        </div>
-        <dl class="answer__facts">
-          <div><dt>Experience</dt><dd>${statText(site.stats[0])} years</dd></div>
-          <div><dt>Projects</dt><dd>${statText(site.stats[1])} completed</dd></div>
-          <div><dt>Education</dt><dd>MPhil, Computer Science</dd></div>
-          <div><dt>Works with</dt><dd>WordPress · HTML · CSS · JavaScript</dd></div>
-        </dl>
-        <ul class="answer__focus" aria-label="Focus areas">
-          <li data-focus="web">Web development</li>
-          <li data-focus="ai">AI solutions</li>
-          <li data-focus="search">SEO, AEO &amp; GEO</li>
-        </ul>
-        <pre class="answer__code" aria-hidden="true">${esc(codeSnippet)}</pre>
       </div>
     </div>
   </div>
