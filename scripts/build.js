@@ -306,6 +306,7 @@ ${header(pagePath)}
 ${body}
 </main>
 ${footer()}
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
 <script src="/assets/js/main.js?v=${JS_V}" defer></script>
 </body>
 </html>
@@ -373,7 +374,6 @@ function postItem(p, headingLevel = "h3") {
 /* ------------------------------------------------------------------- pages */
 function homePage() {
   const featured = projectList.filter((p) => p.featured).slice(0, 4);
-  const blogPreview = [...posts.filter((p) => p.featured), ...posts.filter((p) => !p.featured)].slice(0, 3);
   const statText = (s) => s.value.toFixed(s.decimals) + s.suffix;
 
   const body = `
@@ -382,13 +382,15 @@ function homePage() {
   <div class="hero__spot" aria-hidden="true"></div>
   <div class="container hero__inner">
     ${site.availability ? `<p class="hero__availability hero__fade">${esc(site.availability)}</p>` : ""}
-    <h1 id="hero-title"><span class="line">Websites that work.</span> <span class="line"><em>And get you found.</em></span></h1>
+    <div class="hero__stack">
+    <h1 id="hero-title"><span class="line"><span>Websites that work. And</span></span> <span class="line"><span><em>get you found.</em></span></span></h1>
     <div class="hero__foot hero__fade">
       <p class="lede">Hi, I'm ${esc(site.name)}. I build WordPress websites, set up AI tools and automations, and handle SEO so the right people can find you.</p>
       <div class="hero__actions">
         <a class="btn" href="/projects/"><span>See my work</span>${icon("arrow")}</a>
         <a class="link-arrow" href="/contact/"><span>Let's work together</span>${icon("arrow")}</a>
       </div>
+    </div>
     </div>
   </div>
 </section>
@@ -442,31 +444,6 @@ function homePage() {
   </div>
 </section>
 
-<section class="section surface-deep" aria-labelledby="why-title">
-  <div class="container why__grid">
-    <div class="why__head reveal">
-      <h2 id="why-title">Why work <em>with me</em></h2>
-      <p class="lede">A computer science background, hands-on WordPress experience and a sensible approach to AI and SEO.</p>
-      <a class="link-arrow" href="/about/"><span>How I work</span>${icon("arrow")}</a>
-    </div>
-    <ul class="why__list">
-      ${about.strengths.map((s) => `<li class="reveal"><h3>${esc(s.title)}</h3><p>${esc(s.text)}</p></li>`).join("")}
-    </ul>
-  </div>
-</section>
-
-<section class="section surface-dark" aria-labelledby="process-title">
-  <div class="container">
-    <div class="section-head reveal">
-      <h2 id="process-title">How a project runs</h2>
-      <p>The same six steps every time, so you always know what's happening and what comes next.</p>
-    </div>
-    <ol class="process reveal">
-      ${about.process.map((s, i) => `<li><span class="process__n">${String(i + 1).padStart(2, "0")}</span><h3>${esc(s.title)}</h3><p>${esc(s.text)}</p></li>`).join("")}
-    </ol>
-  </div>
-</section>
-
 <section class="section section--tight surface-dark" aria-labelledby="tools-title">
   <div class="container">
     <div class="section-head reveal">
@@ -476,16 +453,6 @@ function homePage() {
       ${about.tools.map((t) => `<li><span class="tools__name">${esc(t.name)}</span><p>${esc(t.use)}</p></li>`).join("")}
     </ul>
     ${about.additionalTools.length ? `<ul class="tags tools-more">${about.additionalTools.map((t) => `<li class="tag">${esc(t)}</li>`).join("")}</ul>` : ""}
-  </div>
-</section>
-
-<section class="section surface-cream" aria-labelledby="blog-title">
-  <div class="container">
-    <div class="section-head section-head--split reveal">
-      <h2 id="blog-title">Notes on WordPress, <em>AI and SEO</em></h2>
-      <p>Simple guides to the things I work with every day. <a href="/blog/">Read the blog</a>.</p>
-    </div>
-    <ul class="posts reveal">${blogPreview.map((p) => `<li>${postItem(p)}</li>`).join("")}</ul>
   </div>
 </section>
 

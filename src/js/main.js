@@ -83,6 +83,14 @@
     });
   }
 
+  /* Smooth scrolling for mouse wheels and trackpads (touch keeps native scrolling) */
+  var lenis = null;
+  if (window.Lenis && !reduceMotion.matches) {
+    lenis = new window.Lenis({ duration: 1.15, easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); }, anchors: true });
+    var raf = function (time) { lenis.raf(time); window.requestAnimationFrame(raf); };
+    window.requestAnimationFrame(raf);
+  }
+
   /* Mobile menu */
   var toggle = $(".nav-toggle");
   var nav = $("#site-nav");
@@ -94,6 +102,7 @@
       toggle.querySelector(".nav-toggle__label").textContent = open ? "Close" : "Menu";
       nav.classList.toggle("is-open", open);
       document.body.classList.toggle("is-locked", open);
+      if (lenis) { if (open) lenis.stop(); else lenis.start(); }
       if (open) { var first = $("a", nav); if (first) first.focus(); }
     };
     toggle.addEventListener("click", function () {
