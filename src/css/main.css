@@ -122,10 +122,11 @@ hr { border: 0; border-top: 1px solid var(--line); }
 
 ::selection { background: var(--pink); color: var(--plum); }
 :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: var(--r-sm); }
-html { scrollbar-color: var(--plum-raised) var(--plum-deep); }
+html { scrollbar-color: #6a5a7e var(--plum-deep); }
 ::-webkit-scrollbar { width: 12px; height: 12px; }
 ::-webkit-scrollbar-track { background: var(--plum-deep); }
-::-webkit-scrollbar-thumb { background: var(--plum-raised); border: 3px solid var(--plum-deep); border-radius: 8px; }
+::-webkit-scrollbar-thumb { background: #6a5a7e; border: 3px solid var(--plum-deep); border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: var(--pink); }
 
 .visually-hidden {
   position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
@@ -824,9 +825,6 @@ html.lenis, html.lenis body { height: auto; }
 }
 @media (max-width: 640px) { .page-hero .hero__glow span:nth-child(1) { width: 100vw; height: 100vw; } }
 
-/* Hide the browser scrollbar; scrolling still works with wheel, touch and keys */
-html { scrollbar-width: none; -ms-overflow-style: none; }
-html::-webkit-scrollbar, body::-webkit-scrollbar { width: 0; height: 0; display: none; }
 
 /* GSAP takes over motion: switch off the CSS fallback states so the two never fight */
 .gsap .reveal, .gsap [data-stagger] > *, .gsap .section-head.reveal h2 { opacity: 1; transform: none; clip-path: none; transition: none; }

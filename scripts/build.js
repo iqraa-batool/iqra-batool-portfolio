@@ -427,9 +427,8 @@ function homePage() {
     <ul class="service-index">
       ${services
         .map((c) => {
-          const count = c.services.length;
           return `<li class="service-index__item reveal"><a class="service-index__link" href="/services/#${c.id}">
-        <span><span class="service-index__title">${esc(c.title)}</span><span class="service-index__count">${count} services</span></span>
+        <span class="service-index__title">${esc(c.title)}</span>
         <span class="service-index__summary">${esc(c.summary)}</span>
         <span class="service-index__arrow">${icon("arrow")}</span>
       </a></li>`;
