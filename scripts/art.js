@@ -8,15 +8,15 @@
  */
 
 const C = {
-  plum: "#292333",
-  deep: "#1f1a27",
-  raised: "#332b40",
-  royal: "#482B63",
-  mauve: "#A46CA3",
-  pink: "#E8B8C6",
-  lav: "#DCD0E9",
-  cream: "#FAF6F0",
-  gold: "#D4AF37",
+  plum: "#0B0B0B",
+  deep: "#141010",
+  raised: "#1B1414",
+  royal: "#5B0F18",
+  mauve: "#8C2A35",
+  pink: "#D9B9A6",
+  lav: "#E6D9C8",
+  cream: "#F8F1E7",
+  gold: "#8C2A35",
   white: "#FFFFFF",
 };
 

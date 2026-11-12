@@ -1,6 +1,6 @@
 # Iqra Batool — Portfolio
 
-The personal portfolio of Iqra Batool, WordPress Developer, AI Solutions Builder and SEO Specialist. It is a plain HTML, CSS and JavaScript website: no framework, no CMS and no npm dependencies. A small Node script turns the content files into static pages.
+The personal portfolio of Iqra Batool, WordPress Developer, AI Solutions Builder and SEO Specialist. It is one landing page plus a case study page per project, written in plain HTML, CSS and JavaScript: no framework, no CMS and no npm dependencies. A small Node script turns the content files into static pages.
 
 ## Structure
 
@@ -10,10 +10,9 @@ content/          ← edit these: all text and data lives here
   about.js        biography, education, experience, certifications, skills
   services.js     the three service categories, sub-services, process, FAQ
   projects.js     case studies (type: client | personal | demo | experimental)
-  posts.js        blog articles and categories
 src/
   css/main.css    the whole design system (tokens at the top)
-  js/main.js      menu, filters, search, load-more, form, reveal effects
+  js/main.js      menu, accordions, form and the GSAP scroll animations
   img/            logo, monogram, favicon, Open Graph image
 scripts/
   build.js        static site generator → public/
@@ -21,15 +20,18 @@ scripts/
   serve.js        local preview server
   icons.js        renders the PNG icons from the SVGs
 public/           ← generated output; deploy this folder (don't edit it by hand)
-DESIGN.md         design direction, tokens and the design-review record
+PRODUCT.md        who the site is for and what it must stay true to
+DESIGN.md         design direction, tokens and motion
 ```
 
 The build creates these pages:
 
-- Home, About, Services, Projects, Blog and Contact;
-- one page per project and one per article;
+- the landing page (hero, about, services, process, work, FAQ and contact);
+- one case study page per project;
 - a 404 page;
-- `sitemap.xml`, `robots.txt`, `feed.xml` (RSS) and `site.webmanifest`.
+- `sitemap.xml`, `robots.txt` and `site.webmanifest`.
+
+The old About, Services, Projects, Contact and Blog addresses redirect to the landing page (see `vercel.json`).
 
 ## Run it locally
 
@@ -63,7 +65,7 @@ After any change, run `npm run build` and refresh the page.
 
 - **Text and identity:** `content/site.js`.
   - Any field left as `""` is hidden on the site, so nothing appears empty or made up.
-- **About page:** `content/about.js`.
+- **About section and process steps:** `content/about.js`.
   - Each section (education, experience, certifications) appears only once it has entries.
 - **Services:** `content/services.js`.
   - Each category has sub-services, deliverables and an FAQ.
@@ -81,15 +83,6 @@ Each project is one object in `content/projects.js`.
   2. Set `image: "/assets/img/projects/name.jpg"`, `imageWidth` and `imageHeight`.
 - Use `url` for a live link, and only for a site you're allowed to show.
 - The site has room for 20+ projects, but showing a curated few reads better than a full archive.
-
-### Blog
-
-Add an object to `content/posts.js` with `slug`, `title`, `category`, `date`, `excerpt` and `body` (HTML).
-
-- `<h2>` headings build each article's table of contents automatically.
-- Reading time is calculated automatically.
-- Each post gets an RSS entry and BlogPosting structured data.
-- The eight current articles are **drafts written for review**, all dated 2026-11-10. Read them, check every statement, and change the dates to when you actually publish.
 
 ## Social links
 
@@ -117,17 +110,14 @@ Until an endpoint is set, submitting the form shows a clear message that the for
 2. Rebuild. The placeholder warning should disappear.
 3. Submit `https://yourdomain/sitemap.xml` in Google Search Console and Bing Webmaster Tools.
 
-Page titles and meta descriptions are set in `scripts/build.js`, one per page. Articles and projects use their own title and excerpt.
+Page titles and meta descriptions are set in `scripts/build.js`, one per page. Each case study uses its own title and summary.
 
 The structured data covers:
 
 - Person and WebSite;
-- ProfilePage (About);
-- Service and FAQPage (Services);
-- CollectionPage (Projects) and CreativeWork (each project);
-- Blog and BlogPosting;
-- ContactPage;
-- BreadcrumbList on every inner page.
+- Service and FAQPage (landing page);
+- CreativeWork (each project);
+- BreadcrumbList on every case study.
 
 ## Deployment
 
@@ -159,36 +149,5 @@ Nothing personal was invented, so these are blank or placeholders until you prov
 - [ ] **Work experience**: roles, organisations and dates
 - [ ] **Certifications**, if any
 - [ ] **Availability line**, if you want one in the hero
-- [ ] **Blog review**: read, edit and re-date the eight draft articles
 - [ ] **Tech tags**: check the technologies listed on each project match what you'd actually use
 - [ ] **Portrait photo**, optional (the site doesn't use one yet; adding one needs a small template change in `aboutPage` in `scripts/build.js`)
-
-## 25 blog topic ideas
-
-These don't repeat the eight existing drafts.
-
-1. How to Choose Between a Block Theme and a Classic Theme in WordPress
-2. A Beginner's Guide to theme.json
-3. How to Build a Custom Gutenberg Block Without a Framework
-4. WordPress Security Basics Every Site Owner Should Know
-5. How to Safely Update WordPress, Themes and Plugins
-6. When You Need a Custom Plugin, and When You Don't
-7. How to Migrate a Website to WordPress Without Losing Rankings
-8. Writing Content That AI Assistants Can Quote Accurately
-9. How to Write FAQ Sections That Actually Help Readers
-10. Topic Clusters: Planning Content Around Real Questions
-11. Core Web Vitals in Plain Language
-12. Image Optimisation for WordPress: Formats, Sizes and Lazy Loading
-13. Internal Linking Strategies for Small Websites
-14. How to Read Google Search Console Reports
-15. Local SEO Basics for Small Businesses
-16. What E-E-A-T Means for Your Website
-17. How to Add an AI Chat Assistant to a Website Responsibly
-18. Automating Contact Form Workflows with Make, Zapier or n8n
-19. Keeping AI API Keys Safe: Server-Side Patterns for Websites
-20. Using AI to Draft Content, and Where Human Editing Matters
-21. Accessibility Checklist for WordPress Websites
-22. Designing a Website Redesign Brief
-23. How to Measure Whether a Website Redesign Worked
-24. Static Sites vs WordPress: Choosing the Right Tool
-25. How AI Overviews Are Changing Search Traffic, and What to Do About It

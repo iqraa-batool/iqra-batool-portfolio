@@ -1,76 +1,59 @@
 # Design notes
 
-How the site looks and why, plus the record of the Impeccable design review.
+How the site looks and moves, and why. This replaces the earlier plum-and-pink direction.
 
 ## Direction
 
-The site is dark first and reads like a magazine. Midnight Plum is the canvas. The headings use Big Shoulders Display, a tall condensed face, set large and bold, in heavy uppercase (weight 900, tight leading) like the reference site wptechstudio.com, with key words picked out in pink. Cream sections break up the long dark pages. Gold is rare on purpose: it appears only in the monogram's dot, small rules and a few labels. That keeps it feeling like an accent rather than decoration.
+A black-led page in three colours: Deep Black, Soft Cream and Burgundy Wine. The landing page is built from "sheets": full-width sections with rounded top corners that slide up over the one before, starting with the first sheet sliding over a pinned hero. Black and cream sheets alternate, and burgundy is kept for two full sections (process and contact) and for emphasis.
 
-What the design deliberately avoids:
+Headings are Big Shoulders Display at weight 900, uppercase and set tight. Emphasis in a heading is a solid slab behind the words (burgundy on black and cream, cream on burgundy), never italics, a gradient or a colour change alone. Body and interface text use Hanken Grotesk.
 
-- gradient blobs;
-- glassmorphism cards;
-- stock icons in coloured circles;
-- fake logo walls and testimonials;
-- "trusted by" strips.
+The content order follows the reference site, wptechstudio.com: hero, about, services, process, work, FAQ, contact.
 
-The proof is the work itself: case studies with a clear project type, the problem, the approach and the outcome.
+What the design avoids:
+
+- gradient text and glass cards;
+- small labels sitting above headings;
+- invented testimonials, logo walls or pricing;
+- any colour outside the three, apart from tints of them.
 
 ## Tokens (`src/css/main.css`, `:root`)
 
 | Token | Value | Use |
 |---|---|---|
-| `--plum` | #292333 | Default page background |
-| `--plum-deep` | #1f1a27 | `.surface-deep` sections, footer |
-| `--plum-raised` | #332b40 | Panels and cards on dark |
-| `--royal` | #482B63 | `.surface-royal` (CTA band) |
-| `--mauve` | #A46CA3 | Secondary accent, art |
-| `--pink` | #E8B8C6 | Links on dark |
-| `--lav` | #DCD0E9 | Hairlines, the monogram on dark |
-| `--cream` | #FAF6F0 | Body text on dark; `.surface-cream` background |
-| `--gold` | #D4AF37 | Sparse accent only |
+| `--black` | #0B0B0B | Hero, about, work, footer |
+| `--black-raised` | #171212 | Panels and image frames on black |
+| `--wine` | #5B0F18 | Process and contact sections, slabs, accents |
+| `--wine-deep` | #450B12 | Panels on burgundy |
+| `--wine-lit` | #8C2A35 | Burgundy that must show on black: glow, borders, footer wordmark |
+| `--cream` | #F8F1E7 | Text on dark; services and FAQ sections |
+| `--cream-deep` | #ECE1D0 | Panels on cream |
 
-Semantic tokens (`--bg`, `--ink`, `--ink-soft`, `--ink-mute`, `--line`, `--link`, `--panel`) are redefined for each surface. Components never hard-code colours, so any section can switch between plum, cream and royal and stay readable.
+Burgundy on black is too dark to read (1.4:1), so burgundy is never used for text on black. It appears there only as a fill with cream text on top.
 
-**Type**
+Each section carries one surface class: `.on-black`, `.on-cream` or `.on-wine`. The class sets `--bg`, `--ink`, `--ink-soft`, `--ink-mute`, `--line`, the slab colours and the button colours. Components read those and never hard-code a colour, so a section can change surface and stay readable.
 
-- Headings and display: Big Shoulders Display.
-- Interface (nav, buttons, labels): Poppins.
-- Body text: Inter.
-- Sizes are fluid `clamp()` steps, `--t-hero` through `--t-label`.
+**Shape.** Buttons, tags and the header are pills. Sheets have large rounded top corners (`--r-sheet`). Images and form fields use a small radius.
 
-**Space and shape**
+## Motion
 
-- `--section` provides fluid vertical rhythm.
-- The container is 1240px, with a fluid gutter.
-- Corners are nearly square (2px and 6px radii).
-- Motion uses a single ease-out curve (`--ease`).
-- All motion stops under `prefers-reduced-motion`.
+GSAP with ScrollTrigger drives the animation and Lenis smooths the scrolling. Everything is visible in the HTML first, so the page reads correctly if the scripts fail, and all of it switches off under `prefers-reduced-motion`.
 
-**Monogram.** The I and the B are separate letters: a serif I, then a B made of a stem and two outlined bowls. A gold dot sits at the B's waist. The source files are in `src/img/` (`logo.svg`, `monogram*.svg`, `favicon.svg`). The PNG fallbacks are generated with `npm run icons`.
+- **Hero intro:** the three icon tiles land first, then the headline rises out of masks, then the notes and buttons.
+- **Pinned hero:** on screens at least 900px wide the hero stays fixed and sinks back as the first sheet slides over it.
+- **Headings:** words rise one after another as they scroll into view; a slab moves as one piece.
+- **Services and FAQ:** accordions, one panel open at a time.
+- **Process:** the wavy line draws with the scroll, and each step lands as the line reaches it. Below 1100px the steps become a simple list.
+- **Work:** each image unmasks from the bottom and drifts inside its frame while scrolling.
+- **Footer:** the wordmark rises into place as the page ends.
 
-## Impeccable review
+## Checks run on this version
 
-[Impeccable](https://github.com/pbakaus/impeccable) was installed as a project skill. Its `detect` analyser was run over the built `public/` folder and reported 316 findings. Each category was judged as follows:
+Run in the preview browser at 1440px and 375px wide:
 
-| Finding | Count | Verdict |
-|---|---|---|
-| low-contrast | 113 | **Mostly false positives.** Almost all came from the `@media print` rule (black text on a white background), which the static analyser reads as normal page styles. Checked separately with a real in-browser audit (below). |
-| cramped-padding | 162 | **False positives.** These are hairline-divided lists (no padding by design) and `clamp()` padding that the analyser can't resolve. Checked visually at 375px and at desktop width. |
-| overused-font | 19 | **Kept.** The fonts were specified in the brief. |
-| italic-serif-display | 12 | **Resolved.** The headings now use Big Shoulders Display, and heading emphasis is shown with colour instead of italics. |
-| tight-leading | 4 | **Kept.** These are large display headings, where tight leading reads better. Body text uses 1.65. |
-| em-dash-overuse | 6 | **Fixed.** Prose was rewritten with commas, colons, full stops and parentheses. Dashes remain in three places: the brief's verbatim hero line, the `<title>` separators, and the "**Term** — definition" glossary lists in the articles. |
+- No horizontal overflow at either width.
+- Every text element on the landing page passes WCAG AA contrast (4.5:1, or 3:1 for large text).
+- One `h1` per page and no duplicate ids.
+- The mobile menu opens and closes; the contact form shows its five validation messages and the "not connected yet" message.
 
-**In-browser contrast audit.** Run in the preview browser on `/`, `/about/`, `/services/`, `/projects/`, `/blog/`, `/contact/` and `/404.html`:
-
-- For every visible text node, it computed the foreground colour against the effective blended background.
-- It applied WCAG AA thresholds: 4.5:1 for normal text and 3:1 for large text.
-- **Result:** one flag, the oversized "404" on the error page (1.13:1). That element is a decorative watermark marked `aria-hidden="true"`, and the readable message sits beside it, so it was left as designed. Everything else passes.
-
-**Other checks run in the browser:**
-
-- One `h1` per page and no skipped heading levels. The Services accordion summaries were changed to `h3` to fix one skip.
-- No duplicate ids, no images without `alt`, and no inputs without labels.
-- No horizontal overflow at 375px. This needed two fixes: the article grid now uses `minmax(0, 1fr)`, and tables scroll inside their own box.
-- The mobile menu toggles `aria-expanded`, locks page scrolling, closes on Esc and returns focus to the menu button.
+The Impeccable detector flags the footer wordmark for contrast and some sections for "cramped padding". The wordmark is decorative and hidden from screen readers; the padding findings come from `clamp()` values the detector cannot resolve.
