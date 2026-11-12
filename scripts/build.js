@@ -301,6 +301,8 @@ function homePage() {
   const faqs = seo.faqs || [];
   const SERVICE_ICON = { wordpress: "code", ai: "spark", seo: "search" };
   const word = (t, cls = "") => `<span class="w${cls ? " " + cls : ""}"><span>${t}</span></span>`;
+  const MARQUEE = ["WordPress", "Bricks Builder", "AI automation", "SEO", "AEO", "GEO", "Figma to WordPress", "Speed"];
+  const marquee = `<div class="marquee__group">${MARQUEE.map((t) => `<span>${esc(t)}</span>${icon("spark")}`).join("")}</div>`;
   const tile = (kind, name) => `<span class="tile tile--${kind}" aria-hidden="true">${icon(name)}</span>`;
 
   const body = `
@@ -311,14 +313,8 @@ function homePage() {
     <h1 id="hero-title" class="hero__title">
       <span class="hero__line">${word("Websites")} ${tile("cream", "code")} ${word("that")}</span>
       <span class="hero__line">${word("work.")} ${tile("wine", "spark")} ${word("And get")}</span>
-      <span class="hero__line">${word("you")} ${tile("ring", "search")} ${word("<em>found.</em>")}</span>
+      <span class="hero__line">${word("you")} ${tile("ring", "search")} ${word(`<em class="swap"><span class="swap__list"><span class="is-on">found.</span><span aria-hidden="true">seen.</span><span aria-hidden="true">chosen.</span></span></em>`)}</span>
     </h1>
-    <ul class="hero__notes" aria-label="What I do">
-      <li>WordPress <br>web developer</li>
-      <li>Bricks Builder <br>specialist</li>
-      <li>AI in the build, <br>checked by a person</li>
-      <li>SEO, AEO <br>and GEO</li>
-    </ul>
     </div>
     <div class="hero__foot">
       <p class="lede">Hi, I'm ${esc(site.name)}. I build fast WordPress and Bricks Builder websites with AI, set up automations, and handle SEO so the right people can find you.</p>
@@ -328,6 +324,7 @@ function homePage() {
       </div>
     </div>
   </div>
+  <div class="marquee" aria-hidden="true"><div class="marquee__track">${marquee}${marquee}</div></div>
 </section>
 
 <div class="stack">

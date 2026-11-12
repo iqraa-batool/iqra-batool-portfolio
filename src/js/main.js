@@ -69,6 +69,66 @@
     });
   }
 
+  /* Hero lens: a burgundy copy of the hero shows through a circle at the pointer */
+  var heroLens = $(".hero");
+  if (heroLens && finePointer && !reduceMotion.matches) {
+    var lensInner = $(".hero__inner", heroLens);
+    var lens = document.createElement("div");
+    lens.className = "hero__mask on-wine";
+    lens.setAttribute("aria-hidden", "true");
+    lens.setAttribute("inert", "");
+    var copy = lensInner.cloneNode(true);
+    $$("[id]", copy).forEach(function (el) { el.removeAttribute("id"); });
+    lens.appendChild(copy);
+    lensInner.insertAdjacentElement("afterend", lens);
+    var lp = { x: 0, y: 0, r: 0 }, lt = { x: 0, y: 0, r: 0 }, lensRaf = 0, lensReady = false;
+    window.setTimeout(function () { lensReady = true; }, 2600);
+    var stepLens = function () {
+      lp.x += (lt.x - lp.x) * 0.16; lp.y += (lt.y - lp.y) * 0.16; lp.r += (lt.r - lp.r) * 0.1;
+      lens.style.setProperty("--lx", lp.x.toFixed(1) + "px");
+      lens.style.setProperty("--ly", lp.y.toFixed(1) + "px");
+      lens.style.setProperty("--lr", Math.max(0, lp.r).toFixed(1) + "px");
+      lensRaf = Math.abs(lt.x - lp.x) + Math.abs(lt.y - lp.y) + Math.abs(lt.r - lp.r) > 0.3 ? window.requestAnimationFrame(stepLens) : 0;
+    };
+    var kickLens = function () { if (!lensRaf) lensRaf = window.requestAnimationFrame(stepLens); };
+    heroLens.addEventListener("pointermove", function (ev) {
+      var r = heroLens.getBoundingClientRect();
+      lt.x = ev.clientX - r.left; lt.y = ev.clientY - r.top;
+      if (!lp.r) { lp.x = lt.x; lp.y = lt.y; }
+      var t = ev.target;
+      lt.r = !lensReady || window.scrollY > 24 || t.closest("a, button") ? 0 : t.closest(".hero__title") ? 210 : 56;
+      kickLens();
+    });
+    heroLens.addEventListener("pointerleave", function () { lt.r = 0; kickLens(); });
+    window.addEventListener("scroll", function () { if (window.scrollY > 24 && lt.r) { lt.r = 0; kickLens(); } }, { passive: true });
+  }
+
+  /* Hero: the last headline word rolls through its endings */
+  var swaps = $$(".swap");
+  if (swaps.length && !reduceMotion.matches) {
+    var swapIndex = 0;
+    var showSwap = function (i) {
+      swaps.forEach(function (em) {
+        var words = $$(".swap__list > span", em);
+        var cs = window.getComputedStyle(em);
+        words.forEach(function (w, n) {
+          w.classList.toggle("is-off", n === swapIndex && n !== i);
+          w.classList.toggle("is-on", n === i);
+        });
+        em.style.width = (words[i].offsetWidth + parseFloat(cs.paddingLeft) + parseFloat(cs.paddingRight)) + "px";
+      });
+      swapIndex = i;
+    };
+    var startSwap = function () {
+      showSwap(0);
+      window.setInterval(function () {
+        var count = $$(".swap__list > span", swaps[0]).length;
+        showSwap((swapIndex + 1) % count);
+      }, 2800);
+    };
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(startSwap); else startSwap();
+  }
+
   /* Magnetic buttons: a gentle pull toward the pointer */
   if (finePointer && !reduceMotion.matches) {
     $$(".btn, .btn-talk, .btn-cta").forEach(function (btn) {
@@ -215,13 +275,16 @@
       .from($(".hero__glow", hero), { opacity: 0, duration: 2.2, ease: "power2.out" }, 0)
       .from(tiles, { scale: 0, rotation: -120, duration: 1.1, stagger: 0.12, ease: "back.out(1.6)" }, 0.15)
       .from(words, { yPercent: 115, duration: 1.3, stagger: 0.07 }, 0.55)
-      .from($$(".hero__notes li", hero), { opacity: 0, y: 14, duration: 0.9, stagger: 0.08 }, 1.2)
+      .from($(".marquee", hero), { opacity: 0, y: 30, duration: 1.2 }, 1.3)
       .from($$(".hero__foot > *", hero), { opacity: 0, y: 28, duration: 1.1, stagger: 0.1 }, 1.25);
 
     /* The tiles keep turning slowly with the scroll */
     tiles.forEach(function (t, i) {
       gsap.to($("svg", t), { rotation: i % 2 ? -180 : 180, ease: "none", scrollTrigger: { trigger: hero, start: "top top", end: "+=" + window.innerHeight, scrub: 0.6 } });
     });
+
+    /* The marquee slides sideways with the scroll */
+    gsap.to($(".marquee__track", hero).parentNode, { xPercent: -14, ease: "none", scrollTrigger: { trigger: hero, start: "top top", end: "+=" + window.innerHeight, scrub: 0.6 } });
 
     /* As the first sheet slides over, the pinned hero sinks back */
     var stack = $(".stack");
