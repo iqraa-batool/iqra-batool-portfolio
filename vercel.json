@@ -39,32 +39,32 @@
   ],
   "redirects": [
     {
-      "source": "/about",
+      "source": "/about/",
       "destination": "/#about",
       "permanent": true
     },
     {
-      "source": "/services",
+      "source": "/services/",
       "destination": "/#services",
       "permanent": true
     },
     {
-      "source": "/projects",
+      "source": "/projects/",
       "destination": "/#work",
       "permanent": true
     },
     {
-      "source": "/contact",
+      "source": "/contact/",
       "destination": "/#contact",
       "permanent": true
     },
     {
-      "source": "/blog",
+      "source": "/blog/",
       "destination": "/",
       "permanent": true
     },
     {
-      "source": "/blog/:path*",
+      "source": "/blog/(.*)",
       "destination": "/",
       "permanent": true
     },
