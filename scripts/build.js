@@ -104,10 +104,9 @@ const SOCIAL_LABEL = {
   dribbble: "Dribbble", facebook: "Facebook", youtube: "YouTube", upwork: "Upwork", fiverr: "Fiverr",
 };
 
-const monogram = (cls = "") => `<svg${cls ? ` class="${cls}"` : ""} viewBox="0 0 64 64" aria-hidden="true" focusable="false">
-<path d="M8 12h15.2v3.2H18v33.6h5.2V52H8v-3.2h5.2V15.2H8z" fill="currentColor"/><path d="M28 12h5v40h-5z" fill="currentColor"/>
-<path d="M30.5 13.8H42a8.6 8.6 0 0 1 0 17.2H30.5M30.5 31H44a9.6 9.6 0 0 1 0 19.2H30.5" fill="none" stroke="currentColor" stroke-width="3.6"/>
-<circle cx="30.5" cy="31" r="2.6" fill="currentColor"/></svg>`;
+// The IB mark: a burgundy I that is also the stem of the B.
+const monogram = (cls = "") => `<svg${cls ? ` class="${cls}"` : ""} viewBox="0 0 40 64" aria-hidden="true" focusable="false">
+<rect width="13" height="64" fill="#8C2A35"/><path fill-rule="evenodd" fill="currentColor" d="M17 0H24Q36 0 36 12V20Q36 28 30 31Q40 34 40 44V52Q40 64 28 64H17ZM17 12H21Q24 12 24 15V22Q24 25 21 25H17ZM17 37H23Q27 37 27 40V49Q27 52 23 52H17Z"/></svg>`;
 
 /* ---------------------------------------------------------- structured data */
 const PERSON_ID = abs("/#person");

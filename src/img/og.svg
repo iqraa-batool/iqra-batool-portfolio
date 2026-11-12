@@ -1,13 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <rect width="1200" height="630" fill="#0B0B0B"/>
   <rect x="0" y="0" width="12" height="630" fill="#5B0F18"/>
-  <g transform="translate(96 92) scale(1.6)">
-    <path d="M8 12h15.2v3.2H18v33.6h5.2V52H8v-3.2h5.2V15.2H8z" fill="#F8F1E7"/><path d="M28 12h5v40h-5z" fill="#F8F1E7"/>
-    <path d="M30.5 13.8H42a8.6 8.6 0 0 1 0 17.2H30.5M30.5 31H44a9.6 9.6 0 0 1 0 19.2H30.5" fill="none" stroke="#F8F1E7" stroke-width="3.6"/>
-    <circle cx="30.5" cy="31" r="2.6" fill="#8C2A35"/>
-  </g>
-  <text x="96" y="330" font-family="'Big Shoulders Display', 'Arial Narrow', sans-serif" font-size="110" font-weight="700" fill="#F8F1E7">Iqra Batool</text>
-  <text x="100" y="404" font-family="'Hanken Grotesk', Arial, sans-serif" font-size="30" fill="#CFC5B8">WordPress Web Developer · Bricks Builder · AI · SEO</text>
-  <line x1="100" y1="470" x2="180" y2="470" stroke="#8C2A35" stroke-width="2"/>
-  <text x="100" y="530" font-family="'Hanken Grotesk', 'Segoe UI', sans-serif" font-size="36" fill="#F8F1E7">Websites that work. And get you found.</text>
+  <g transform="translate(100 96) scale(1.7)"><rect width="13" height="64" fill="#8C2A35"/><path fill-rule="evenodd" fill="#F8F1E7" d="M17 0H24Q36 0 36 12V20Q36 28 30 31Q40 34 40 44V52Q40 64 28 64H17ZM17 12H21Q24 12 24 15V22Q24 25 21 25H17ZM17 37H23Q27 37 27 40V49Q27 52 23 52H17Z"/></g>
+  <text x="96" y="352" font-family="'Big Shoulders Display', 'Arial Narrow', sans-serif" font-size="128" font-weight="900" fill="#F8F1E7">IQRA BATOOL</text>
+  <text x="100" y="418" font-family="'Hanken Grotesk', Arial, sans-serif" font-size="30" fill="#CFC5B8">WordPress Web Developer · Bricks Builder · AI · SEO</text>
+  <rect x="100" y="470" width="790" height="76" fill="#5B0F18"/>
+  <text x="118" y="526" font-family="'Big Shoulders Display', 'Arial Narrow', sans-serif" font-size="52" font-weight="900" fill="#F8F1E7" textLength="754" lengthAdjust="spacingAndGlyphs">WEBSITES THAT WORK. AND GET YOU FOUND.</text>
 </svg>

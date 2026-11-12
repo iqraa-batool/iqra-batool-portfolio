@@ -34,7 +34,7 @@ if (!browser) {
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "ib-icons-"));
 const jobs = [
   { svg: "og.svg", out: "og-image.png", w: 1200, h: 630 },
-  { svg: "favicon.svg", out: "apple-touch-icon.png", w: 180, h: 180, bg: "#292333" },
+  { svg: "favicon.svg", out: "apple-touch-icon.png", w: 180, h: 180, bg: "#0B0B0B" },
   { svg: "favicon.svg", out: "favicon-32.png", w: 32, h: 32, scale: 0.25 },
 ];
 
