@@ -29,6 +29,7 @@ const { renderArt, ART_SIZE } = require("./art");
 const assetVersion = (rel) => crypto.createHash("md5").update(fs.readFileSync(path.join(SRC, rel))).digest("hex").slice(0, 10);
 const CSS_V = assetVersion("css/main.css");
 const JS_V = assetVersion("js/main.js");
+const ICON_V = assetVersion("img/favicon.svg");
 
 const BASE = site.siteUrl.replace(/\/+$/, "");
 const BUILD_YEAR = new Date().getFullYear();
@@ -231,9 +232,9 @@ ${noindex ? '<meta name="robots" content="noindex, follow">' : `<link rel="canon
 <meta name="author" content="${esc(site.name)}">
 <meta name="theme-color" content="${THEME_COLOR}">
 <meta name="color-scheme" content="dark">
-<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
-<link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png">
-<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="icon" href="/assets/img/favicon.svg?v=${ICON_V}" type="image/svg+xml">
+<link rel="icon" href="/assets/img/favicon-32.png?v=${ICON_V}" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png?v=${ICON_V}">
 <link rel="manifest" href="/site.webmanifest">
 <meta property="og:type" content="${ogType}">
 <meta property="og:site_name" content="${esc(site.name)}">
