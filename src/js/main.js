@@ -77,9 +77,9 @@
         var r = btn.getBoundingClientRect();
         var dx = (ev.clientX - (r.left + r.width / 2)) / r.width;
         var dy = (ev.clientY - (r.top + r.height / 2)) / r.height;
-        btn.style.transform = "translate(" + (dx * 8).toFixed(1) + "px," + (dy * 6).toFixed(1) + "px)";
+        btn.style.translate = (dx * 8).toFixed(1) + "px " + (dy * 6).toFixed(1) + "px";
       });
-      btn.addEventListener("pointerleave", function () { btn.style.transform = ""; });
+      btn.addEventListener("pointerleave", function () { btn.style.translate = ""; });
     });
   }
 

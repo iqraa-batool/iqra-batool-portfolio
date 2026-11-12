@@ -51,8 +51,6 @@ module.exports = [
     homeTitle: "AI solutions and automation",
     summary:
       "AI features and automated workflows that take repetitive work off your plate. I only add AI where it actually helps.",
-    note:
-      "AI features need your own account with the AI provider, and usage fees may apply. API keys always stay on the server, never in code visitors can see.",
     services: [
       {
         name: "AI Integration",
@@ -130,8 +128,6 @@ module.exports = [
         tags: ["Entity clarity", "Author info", "Quotable sections", "Credibility"],
       },
     ],
-    disclaimer:
-      "Nobody can guarantee rankings or a spot in AI answers. Google and AI tools decide what to show. What I can do is make your site sound, clear and worth citing.",
     deliverables: [
       "SEO audit report",
       "Keyword research",

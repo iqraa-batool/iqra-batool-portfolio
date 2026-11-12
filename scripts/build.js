@@ -194,7 +194,7 @@ function header(current) {
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="nav-toggle__label">Menu</span><span class="nav-toggle__bars" aria-hidden="true"></span></button>
     <nav id="site-nav" class="nav" aria-label="Main">
       <ul class="nav__list">${items}</ul>
-      <a class="btn-talk" href="/contact/"${talkActive ? ' aria-current="page"' : ""}>Let's Talk</a>
+      <a class="btn-talk" href="/contact/"${talkActive ? ' aria-current="page"' : ""}><span>Let's Talk</span><span class="btn-talk__icon" aria-hidden="true">${icon("arrow")}</span></a>
     </nav>
   </div>
 </header>`;
@@ -243,7 +243,6 @@ function footer() {
     </div>
     <div class="footer__bottom">
       <p>© <span data-year>${BUILD_YEAR}</span> ${esc(site.name)}. All rights reserved.</p>
-      <p>Hand-built with HTML, CSS and JavaScript.</p>
     </div>
   </div>
 </footer>
@@ -352,7 +351,8 @@ function cta({ title = "Got an idea? <em>Let's build it.</em>", text = "Tell me 
 function projectMedia(p, { eager = false } = {}) {
   return `<img src="${p.img}" alt="${esc(p.imageAlt || `Illustrated preview of ${p.title}: ${p.subtitle}`)}" width="${p.imgW}" height="${p.imgH}" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async">`;
 }
-const badge = (p) => `<span class="badge${p.type === "demo" ? " badge--demo" : ""}">${esc(p.typeLabel)}</span>`;
+// Demo projects carry no type badge
+const badge = (p) => (p.type === "demo" ? "" : `<span class="badge">${esc(p.typeLabel)}</span>`);
 
 function workItem(p, headingLevel = "h3") {
   return `<article class="work reveal">
@@ -446,18 +446,6 @@ function homePage() {
     </div>
     <div class="work-list">${featured.map((p) => workItem(p)).join("")}</div>
     <p style="margin-top:4rem"><a class="btn btn--ghost" href="/projects/"><span>View all projects</span>${icon("arrow")}</a></p>
-  </div>
-</section>
-
-<section class="section section--tight surface-dark" aria-labelledby="tools-title">
-  <div class="container">
-    <div class="section-head reveal">
-      <h2 id="tools-title">The tools I build with</h2>
-    </div>
-    <ul class="tools reveal">
-      ${about.tools.map((t) => `<li><span class="tools__name">${esc(t.name)}</span><p>${esc(t.use)}</p></li>`).join("")}
-    </ul>
-    ${about.additionalTools.length ? `<ul class="tags tools-more">${about.additionalTools.map((t) => `<li class="tag">${esc(t)}</li>`).join("")}</ul>` : ""}
   </div>
 </section>
 
@@ -666,17 +654,15 @@ ${cta({ title: "Not sure what <em>you need?</em>", text: "Just tell me what the 
 function projectsPage() {
   const crumbs = [{ name: "Home", path: "/" }, { name: "Projects", path: "/projects/" }];
   const cats = [...new Set(projectList.flatMap((p) => p.categories))];
-  const allDemo = projectList.every((p) => p.type === "demo");
   const body = `
 ${pageHero({
   crumbs,
   title: `Selected projects, <em>honestly labelled.</em>`,
   lede: "A few projects I've picked to show my work. Each one is labelled as client work, a personal project, a demo or an experiment.",
 })}
-<section class="section surface-dark" aria-labelledby="projects-title" style="padding-top:0">
+<section class="section surface-dark" aria-labelledby="projects-title" style="padding-top:clamp(2.5rem, 2rem + 2vw, 4rem)">
   <div class="container">
     <h2 id="projects-title" class="visually-hidden">Projects</h2>
-    ${allDemo ? `<div class="note">${icon("info")}<p>The projects shown here are demonstration projects: they illustrate my approach and process, and the businesses described are fictional. They are not presented as client work.</p></div>` : ""}
     <div class="filters" data-project-filters role="group" aria-label="Filter projects by category" hidden>
       <button class="filter" type="button" data-filter="all" aria-pressed="true">All</button>
       ${cats.map((c) => `<button class="filter" type="button" data-filter="${esc(c)}" aria-pressed="false">${esc(c)}</button>`).join("")}
@@ -728,16 +714,14 @@ function projectDetail(p, i) {
   const prev = projectList[(i - 1 + projectList.length) % projectList.length];
   const next = projectList[(i + 1) % projectList.length];
   const meta = [
-    ["Project type", p.typeLabel],
+    p.type === "demo" ? null : ["Project type", p.typeLabel],
     ["Role", p.role],
     ["Categories", p.categories.join(", ")],
     ["Technologies", p.tech.join(", ")],
     p.year ? ["Year", p.year] : null,
   ].filter(Boolean);
   const demoNote =
-    p.type === "demo"
-      ? `<div class="note case-note">${icon("info")}<p><strong>This is a demonstration project.</strong> It was created to show my approach and process. It is not client work, and the business described is fictional.</p></div>`
-      : p.type === "experimental"
+    p.type === "experimental"
       ? `<div class="note case-note">${icon("info")}<p><strong>This is an experiment:</strong> exploratory work, not a delivered client project.</p></div>`
       : "";
 
@@ -790,7 +774,7 @@ ${cta({ title: "Want something <em>like this?</em>", text: "Tell me about your p
         description: p.summary,
         creator: { "@id": PERSON_ID },
         keywords: p.categories.concat(p.tech).join(", "),
-        genre: p.typeLabel,
+        ...(p.type === "demo" ? {} : { genre: p.typeLabel }),
         image: abs(p.img),
         url: abs(p.url),
       },
