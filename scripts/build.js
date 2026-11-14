@@ -229,6 +229,7 @@ function layout({ title, description, path: pagePath, body, schema = [], ogType 
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(description)}">
 ${noindex ? '<meta name="robots" content="noindex, follow">' : `<link rel="canonical" href="${canonical}">`}
+<meta name="google-site-verification" content="S6bSVmmIBpc9fhfS8ftux0UlsFsvACHLhjB_DC3sdz0">
 <meta name="author" content="${esc(site.name)}">
 <meta name="theme-color" content="${THEME_COLOR}">
 <meta name="color-scheme" content="dark">
