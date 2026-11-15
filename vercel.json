@@ -54,6 +54,11 @@
       "permanent": true
     },
     {
+      "source": "/projects/(atelier-block-theme|answer-ready-help-centre|enquiry-triage-automation|figma-to-wordpress-launch-page)/?",
+      "destination": "/#work",
+      "permanent": true
+    },
+    {
       "source": "/contact/",
       "destination": "/#contact",
       "permanent": true
