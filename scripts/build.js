@@ -313,6 +313,7 @@ function homePage() {
   <div class="container hero__inner">
     <div class="hero__stage">
     <h1 id="hero-title" class="hero__title">
+      <span class="visually-hidden">${esc(site.name)}, WordPress and Bricks Builder developer: </span>
       <span class="hero__line">${word("Websites")} ${tile("cream", "code")} ${word("that")}</span>
       <span class="hero__line">${word("work.")} ${tile("wine", "spark")} ${word("And get")}</span>
       <span class="hero__line">${word("you")} ${tile("ring", "search")} ${word(`<em class="swap"><span class="swap__list"><span class="is-on">found.</span><span aria-hidden="true">seen.</span><span aria-hidden="true">chosen.</span></span></em>`)}</span>
@@ -443,7 +444,7 @@ ${
 
   return layout({
     title: `WordPress Web Developer & AI Website Development | ${site.name}`,
-    description: `${site.name} is a WordPress web developer and Bricks Builder developer. Custom WordPress websites, website development with AI, automation and SEO services.`,
+    description: "WordPress and Bricks Builder developer with 1.5+ years building fast, responsive websites for US businesses. Figma to WordPress, AI automation and SEO.",
     path: "/",
     body,
     schema: [
@@ -527,8 +528,8 @@ function projectDetail(p, i) {
 </div>`;
 
   return layout({
-    title: `${p.title} — ${p.subtitle} | ${site.name}`,
-    description: p.summary.slice(0, 158),
+    title: `${p.metaTitle || p.title} | ${site.name}`,
+    description: p.metaDescription || p.summary,
     path: p.url,
     body,
     schema: [

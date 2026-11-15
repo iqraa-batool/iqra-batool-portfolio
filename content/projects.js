@@ -14,11 +14,17 @@
  * figma). To use a real screenshot instead, set `image: "/assets/img/projects/your-file.jpg"`
  * plus `imageWidth` and `imageHeight`, and put the file in src/img/projects/.
  *
+ * `metaTitle` (under ~45 characters, " | Iqra Batool" is added) and `metaDescription`
+ * (140–158 characters) control how the case study looks in Google.
+ *
  * `featured: true` shows the project on the homepage (keep it to 3–4).
  */
 module.exports = [
   {
     slug: "red-river-health-and-wellness",
+    metaTitle: "Red River Health — Bricks Builder Website",
+    metaDescription:
+      "Case study: a fast, responsive healthcare website built in Bricks Builder, with Query Loops and dynamic templates for locations, conditions and blog posts.",
     title: "Red River Health and Wellness Center",
     subtitle: "A responsive healthcare website built in Bricks Builder",
     type: "client",
@@ -46,6 +52,9 @@ module.exports = [
   },
   {
     slug: "transmetron",
+    metaTitle: "Transmetron — WordPress Site Built with BEM",
+    metaDescription:
+      "Case study: a WordPress and Bricks Builder front end built from scratch on a scalable BEM architecture, with fluid typography for a drug testing company.",
     title: "Transmetron",
     subtitle: "A scalable front end built from scratch on a BEM architecture",
     type: "client",
@@ -73,6 +82,9 @@ module.exports = [
   },
   {
     slug: "taylor-lp",
+    metaTitle: "Taylor LP — Mockup to WordPress Website",
+    metaDescription:
+      "Case study: design mockups turned into a responsive, fully functional WordPress website in Bricks Builder for a lightning protection company.",
     title: "Taylor LP",
     subtitle: "Design mockups turned into a working lightning protection website",
     type: "client",
@@ -100,6 +112,9 @@ module.exports = [
   },
   {
     slug: "stitch-print",
+    metaTitle: "Stitch Print — Figma to WordPress Build",
+    metaDescription:
+      "Case study: Figma designs converted into maintainable, reusable WordPress components with BEM for a custom apparel and promotional products company.",
     title: "Stitch Print",
     subtitle: "Figma designs converted into maintainable WordPress components",
     type: "client",
