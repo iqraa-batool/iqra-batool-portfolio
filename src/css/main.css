@@ -307,7 +307,7 @@ main:focus { outline: none; }
 .stack { position: relative; z-index: 2; }
 .sheet {
   position: relative; background: var(--bg); color: var(--ink-soft);
-  border-radius: var(--r-sheet) var(--r-sheet) 0 0; margin-top: calc(var(--r-sheet) * -1);
+  margin-top: calc(var(--r-sheet) * -1);
   padding-block: var(--section) calc(var(--section) + var(--r-sheet));
 }
 .stack > .sheet:first-child { box-shadow: 0 -30px 60px -30px rgba(0, 0, 0, 0.9); }
@@ -486,7 +486,7 @@ main:focus { outline: none; }
 /* ------------------------------------------------------------------ footer */
 .site-footer {
   position: relative; z-index: 2; background: var(--black); color: var(--ink-soft); overflow: hidden;
-  border-radius: var(--r-sheet) var(--r-sheet) 0 0; margin-top: calc(var(--r-sheet) * -1); padding-top: clamp(3rem, 2rem + 4vw, 5rem);
+  margin-top: calc(var(--r-sheet) * -1); padding-top: clamp(3rem, 2rem + 4vw, 5rem);
 }
 .footer__top { display: grid; grid-template-columns: minmax(0, 1.4fr) auto auto; gap: 2.5rem 5rem; align-items: start; }
 .footer__line { font-size: var(--t-lede); line-height: 1.45; color: var(--ink); max-width: 30ch; }
