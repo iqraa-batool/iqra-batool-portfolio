@@ -389,7 +389,7 @@ function homePage() {
   <div class="container">
     <div class="sheet__head">
       <h2 id="work-title" class="display" data-split>Selected <em>work.</em></h2>
-      <p data-rise>Four projects that show how I plan, build and optimise. Each one has a full case study.</p>
+      <p data-rise>Live client websites first, followed by demonstration builds that show how I plan and work. Each one has a full case study.</p>
     </div>
     <ul class="plates">
       ${projectList
