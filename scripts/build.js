@@ -351,7 +351,7 @@ function homePage() {
             id: `svc-${c.id}`,
             head: `<span class="acc__icon" aria-hidden="true">${icon(SERVICE_ICON[c.id] || "plus")}</span><span class="acc__title">${esc(c.title)}</span><span class="acc__summary">${esc(c.summary)}</span>`,
             panel: `<ul class="svc-list">${c.services
-              .map((s) => `<li><h4>${esc(s.name)}</h4><p>${esc(s.desc)}</p><ul class="tags" aria-label="Includes">${s.tags.map((t) => `<li class="tag">${esc(t)}</li>`).join("")}</ul></li>`)
+              .map((s) => `<li><h4>${esc(s.name)}</h4><p>${esc(s.desc)}</p></li>`)
               .join("")}</ul>`,
           })
         )
