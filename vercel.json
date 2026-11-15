@@ -54,7 +54,22 @@
       "permanent": true
     },
     {
-      "source": "/projects/(atelier-block-theme|answer-ready-help-centre|enquiry-triage-automation|figma-to-wordpress-launch-page)/?",
+      "source": "/projects/atelier-block-theme/",
+      "destination": "/#work",
+      "permanent": true
+    },
+    {
+      "source": "/projects/answer-ready-help-centre/",
+      "destination": "/#work",
+      "permanent": true
+    },
+    {
+      "source": "/projects/enquiry-triage-automation/",
+      "destination": "/#work",
+      "permanent": true
+    },
+    {
+      "source": "/projects/figma-to-wordpress-launch-page/",
       "destination": "/#work",
       "permanent": true
     },
