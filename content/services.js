@@ -137,23 +137,5 @@ module.exports = [
       "AEO and GEO recommendations",
       "Progress reports",
     ],
-    faqs: [
-      {
-        q: "What's the difference between SEO, AEO and GEO?",
-        a: "SEO helps your pages rank in Google. AEO helps your content get picked as a direct answer, like a featured snippet. GEO helps AI tools understand and cite your content. All three rely on the same thing: a healthy site with clear, accurate content.",
-      },
-      {
-        q: "How long does SEO take?",
-        a: "Technical fixes can show up within a few weeks. Content work usually takes a few months to show its full effect.",
-      },
-      {
-        q: "Can you guarantee I'll appear in AI answers?",
-        a: "No, and nobody honestly can. AI tools choose what to cite and change often. I focus on what makes your content a strong, credible option.",
-      },
-      {
-        q: "Do you only work on WordPress sites?",
-        a: "No. Most SEO work applies to any platform. On other platforms, some changes may need help from your developer.",
-      },
-    ],
   },
 ];

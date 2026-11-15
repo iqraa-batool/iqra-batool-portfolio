@@ -23,6 +23,7 @@ const site = require("../content/site");
 const about = require("../content/about");
 const services = require("../content/services");
 const projects = require("../content/projects");
+const faqList = require("../content/faqs");
 const { renderArt, ART_SIZE } = require("./art");
 
 // Content hash per asset so browsers fetch new CSS/JS after every change.
@@ -298,8 +299,8 @@ function accRow({ id, head, panel, level = "h3" }) {
 /* ------------------------------------------------------------------- pages */
 function homePage() {
   const statText = (s) => s.value.toFixed(s.decimals) + s.suffix;
-  const seo = services.find((c) => c.id === "seo") || { faqs: [] };
-  const faqs = seo.faqs || [];
+
+  const faqs = faqList;
   const SERVICE_ICON = { wordpress: "code", ai: "spark", seo: "search" };
   const word = (t, cls = "") => `<span class="w${cls ? " " + cls : ""}"><span>${t}</span></span>`;
   const MARQUEE = ["WordPress", "Bricks Builder", "AI automation", "SEO", "AEO", "GEO", "Figma to WordPress", "Speed"];
@@ -415,7 +416,7 @@ ${
   <div class="container faq__grid">
     <div class="faq__head">
       <h2 id="faq-title" class="display" data-split>Questions, <em>answered.</em></h2>
-      <p data-rise>The things people ask most before starting an SEO project. Anything else, <a href="#contact">just ask</a>.</p>
+      <p data-rise>What people usually ask before we work together, from websites and Figma builds to SEO and AI. Anything else, <a href="#contact">just ask</a>.</p>
     </div>
     <ul class="acc acc--faq" data-acc data-rise-group>
       ${faqs.map((f, i) => accRow({ id: `faq-${i + 1}`, head: `<span class="acc__title">${esc(f.q)}</span>`, panel: `<p>${esc(f.a)}</p>` })).join("")}
