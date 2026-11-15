@@ -4,7 +4,7 @@
  *
  *   node scripts/build.js      → writes the complete site to /public
  *
- * The site is one landing page plus a case study page per project.
+ * The site is a single landing page; project cards link to the live sites.
  * Content lives in /content (plain JavaScript data files). Templates are the
  * functions in this file. Assets in /src are copied to /public/assets.
  * No dependencies: Node.js 18+ is all that's required.
@@ -66,7 +66,7 @@ function copyDir(from, to) {
 const TYPE_LABEL = { client: "Client work", personal: "Personal project", demo: "Demonstration project", experimental: "Experiment" };
 const projectList = projects.map((p) => ({
   ...p,
-  url: `/projects/${p.slug}/`,
+  domain: (p.liveUrl || "").replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, ""),
   typeLabel: TYPE_LABEL[p.type] || "Project",
   img: p.image || `/assets/img/projects/${p.slug}.svg`,
   imgW: p.image ? p.imageWidth || 1600 : ART_SIZE.width,
@@ -150,13 +150,8 @@ const websiteSchema = () => ({
   inLanguage: site.locale,
   publisher: { "@id": PERSON_ID },
 });
-const breadcrumbSchema = (items) => ({
-  "@type": "BreadcrumbList",
-  itemListElement: items.map((it, i) => ({ "@type": "ListItem", position: i + 1, name: it.name, item: abs(it.path) })),
-});
-
 /* ------------------------------------------------------------------ layout */
-// The site is one landing page plus a case study per project. Navigation is
+// The site is a single landing page (plus the 404). Navigation is
 // made of anchors: "#about" on the landing page, "/#about" everywhere else.
 const NAV = [
   { id: "about", label: "About" },
@@ -277,11 +272,6 @@ ${footer(pagePath)}
 }
 
 /* --------------------------------------------------------------- partials */
-const breadcrumb = (items) =>
-  `<nav class="breadcrumb" aria-label="Breadcrumb"><ol>${items
-    .map((it, i) => (i === items.length - 1 ? `<li><span aria-current="page">${esc(it.name)}</span></li>` : `<li><a href="${it.path}">${esc(it.name)}</a></li>`))
-    .join("")}</ol></nav>`;
-
 function projectMedia(p, { eager = false } = {}) {
   return `<img src="${p.img}" alt="${esc(p.imageAlt || `Illustrated preview of ${p.title}: ${p.subtitle}`)}" width="${p.imgW}" height="${p.imgH}" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async">`;
 }
@@ -391,18 +381,18 @@ function homePage() {
   <div class="container">
     <div class="sheet__head">
       <h2 id="work-title" class="display" data-split>Selected <em>work.</em></h2>
-      <p data-rise>Live client websites I have built, each with a full case study and a link to the real site.</p>
+      <p data-rise>Live client websites I have built, each one a click away from the real thing.</p>
     </div>
     <ul class="plates">
       ${projectList
         .map(
           (p) => `<li class="plate">
-        <a class="plate__media" href="${p.url}" tabindex="-1" aria-hidden="true">${projectMedia(p)}<span class="plate__view">${icon("arrow")}</span></a>
+        <a class="plate__media" href="${esc(p.liveUrl)}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">${projectMedia(p)}<span class="plate__view">${icon("arrow")}</span></a>
         <div class="plate__body">
           <p class="plate__cats">${badge(p)}${esc(p.categories.join(" · "))}</p>
-          <h3 class="plate__title"><a href="${p.url}">${esc(p.title)}</a></h3>
+          <h3 class="plate__title"><a href="${esc(p.liveUrl)}" target="_blank" rel="noopener">${esc(p.title)}<span class="visually-hidden"> (opens the live site in a new tab)</span></a></h3>
           <p class="plate__sub">${esc(p.subtitle)}</p>
-          <a class="link-arrow" href="${p.url}"><span>Read the case study<span class="visually-hidden">: ${esc(p.title)}</span></span>${icon("arrow")}</a>
+          <a class="link-arrow" href="${esc(p.liveUrl)}" target="_blank" rel="noopener"><span>${esc(p.domain)}<span class="visually-hidden">: visit the live ${esc(p.title)} site (opens in a new tab)</span></span>${icon("arrow")}</a>
         </div>
       </li>`
         )
@@ -464,93 +454,6 @@ ${
   });
 }
 
-function projectDetail(p, i) {
-  const crumbs = [{ name: "Home", path: "/" }, { name: "Work", path: "/#work" }, { name: p.title, path: p.url }];
-  const prev = projectList[(i - 1 + projectList.length) % projectList.length];
-  const next = projectList[(i + 1) % projectList.length];
-  const meta = [
-    p.type === "demo" ? null : ["Project type", p.typeLabel],
-    ["Role", p.role],
-    ["Categories", p.categories.join(", ")],
-    ["Technologies", p.tech.join(", ")],
-    p.year ? ["Year", p.year] : null,
-  ].filter(Boolean);
-  const demoNote =
-    p.type === "experimental"
-      ? `<div class="note case-note">${icon("info")}<p><strong>This is an experiment:</strong> exploratory work, not a delivered client project.</p></div>`
-      : "";
-
-  const body = `
-<section class="case-top on-black">
-  <div class="hero__glow" aria-hidden="true"></div>
-  <div class="container">
-    <div class="case-hero">
-      ${breadcrumb(crumbs)}
-      <h1 class="display display--xl" data-split>${esc(p.title)}</h1>
-      <p class="case-hero__sub" data-rise>${esc(p.subtitle)}</p>
-      <p class="plate__cats" data-rise>${badge(p)}${esc(p.categories.join(" · "))}</p>
-      ${demoNote}
-    </div>
-    <figure class="case-figure">${projectMedia(p, { eager: true })}</figure>
-  </div>
-</section>
-<div class="stack">
-<section class="sheet on-cream" aria-label="Case study">
-  <div class="container case-layout">
-    <dl class="case-meta">
-      ${meta.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join("")}
-      ${p.liveUrl && /^https?:/.test(p.liveUrl) ? `<div><dt>Live site</dt><dd><a href="${esc(p.liveUrl)}" rel="noopener" target="_blank">Visit the site<span class="visually-hidden"> (opens in a new tab)</span></a></dd></div>` : ""}
-    </dl>
-    <div class="case-body">
-      <section><h2>Overview</h2><p>${esc(p.summary)}</p></section>
-      <section><h2>Objective</h2><p>${esc(p.objective)}</p></section>
-      <section><h2>Approach</h2><ol class="steps">${p.approach.map((a) => `<li>${esc(a)}</li>`).join("")}</ol></section>
-      <section><h2>Outcome</h2><p>${esc(p.outcome)}</p></section>
-      <section><h2>Technologies</h2><ul class="tags">${p.tech.map((t) => `<li class="tag">${esc(t)}</li>`).join("")}</ul></section>
-    </div>
-  </div>
-  <div class="container">
-    <nav class="pager" aria-label="More projects">
-      <a href="${prev.url}"><span>Previous project</span><span>${esc(prev.title)}</span></a>
-      <a class="pager__next" href="${next.url}"><span>Next project</span><span>${esc(next.title)}</span></a>
-    </nav>
-  </div>
-</section>
-<section class="sheet on-wine cta" aria-labelledby="cta-title">
-  <div class="container cta__inner">
-    <h2 id="cta-title" class="display display--xl" data-split>Want something <em>like this?</em></h2>
-    <div class="cta__side" data-rise>
-      <p class="lede">Tell me about your project and what you'd like it to achieve.</p>
-      <a class="btn" href="/#contact"><span>Start a conversation</span>${icon("arrow")}</a>
-    </div>
-  </div>
-</section>
-</div>`;
-
-  return layout({
-    title: `${p.metaTitle || p.title} | ${site.name}`,
-    description: p.metaDescription || p.summary,
-    path: p.url,
-    body,
-    schema: [
-      personSchema(),
-      {
-        "@type": "CreativeWork",
-        "@id": abs(p.url + "#work"),
-        name: p.title,
-        alternativeHeadline: p.subtitle,
-        description: p.summary,
-        creator: { "@id": PERSON_ID },
-        keywords: p.categories.concat(p.tech).join(", "),
-        ...(p.type === "demo" ? {} : { genre: p.typeLabel }),
-        image: abs(p.img),
-        url: abs(p.url),
-      },
-      breadcrumbSchema([{ name: "Home", path: "/" }, { name: p.title, path: p.url }]),
-    ],
-  });
-}
-
 function notFoundPage() {
   const body = `<section class="nf on-black">
   <div class="hero__glow" aria-hidden="true"></div>
@@ -591,7 +494,7 @@ function build() {
   copyDir(path.join(SRC, "img"), path.join(OUT, "assets/img"));
   for (const p of projectList) if (!p.image) write(`assets/img/projects/${p.slug}.svg`, renderArt(p.art));
 
-  const pages = [{ path: "/", html: homePage() }, ...projectList.map((p, i) => ({ path: p.url, html: projectDetail(p, i) }))];
+  const pages = [{ path: "/", html: homePage() }];
   for (const pg of pages) write(path.join(pg.path, "index.html"), pg.html);
   write("404.html", notFoundPage());
 

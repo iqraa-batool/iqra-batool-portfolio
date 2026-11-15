@@ -14,8 +14,8 @@
  * figma). To use a real screenshot instead, set `image: "/assets/img/projects/your-file.jpg"`
  * plus `imageWidth` and `imageHeight`, and put the file in src/img/projects/.
  *
- * `metaTitle` (under ~45 characters, " | Iqra Batool" is added) and `metaDescription`
- * (140–158 characters) control how the case study looks in Google.
+ * Each card links straight to `liveUrl` (opens in a new tab); there are no
+ * separate project pages.
  *
  * `featured: true` shows the project on the homepage (keep it to 3–4).
  */
